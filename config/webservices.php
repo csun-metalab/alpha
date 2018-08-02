@@ -32,5 +32,5 @@ return [
     |
     */
 
-    'secret_key' => env('SECRET_KEY', ''),
+    'secret_key' => env('DIRECTORY_SECRET_KEY', ''),
 ];
