@@ -106,7 +106,7 @@ class ProfileController extends Controller
             'nick_name' => $request->nickname,
         ]);
         $guzzle->setHeader('X-API-Key' , config('webservices.secret_key'), false);
-        $response = $guzzle->post(config('webservices.directory_url').'members/update-info');
+        $response = $guzzle->put(config('webservices.directory_url').'members/update-info');
         $guzzleResponse = $guzzle->resolveResponseBody($response, 'json');
         if ($guzzleResponse->status === '200') {
             return response()->json([
