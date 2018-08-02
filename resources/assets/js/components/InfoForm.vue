@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-4 col-md-push-4">
             <div class="form__group profile-avatar profile-img">
-                <img :src="this.user.profile_image" class="img--circle" :alt="this.user.display_name + '\'s Profile Image'">
+                <img :src="this.user.directory_data.profile_image" class="img--circle" :alt="this.user.display_name + '\'s Profile Image'">
                 <a href="#" class="edit-img" @click.prevent="editImage">Edit Image</a>
             </div>
             <div class="form__group">
@@ -21,11 +21,11 @@
                 <strong>Profile Visibility</strong>
                 <div class="row">
                     <div class="col-md-4">
-                        <input type="radio" id="public" :value="true" v-model="confidential_flag">
+                        <input type="radio" id="public" :value="false" v-model="confidential_flag">
                         <label class="radio-inline" for="public">Public</label>
                     </div>
                     <div class="col-md-4">
-                        <input type="radio" id="private" :value="false" v-model="confidential_flag">
+                        <input type="radio" id="private" :value="true" v-model="confidential_flag">
                         <label class="radio-inline" for="private">Private</label>
                     </div>
                 </div>
@@ -43,26 +43,31 @@
         props: ['user'],
         data () {
             return {
-                display_name: String,
-                nickname: String,
                 biography: String,
-                confidential_flag: false,
+                confidential_flag: Boolean,
+                display_name: String,
+                email: String,
+                nickname: String
             }
         },
         created () {
           this.display_name = this.user.display_name
           this.nickname = this.user.nickname
           this.biography = this.user.directory_data.biography
+          this.confidential_flag = !!this.user.directory_data.confidential
         },
         methods: {
             editInfo () {
                 window.axios.post(this.user.email_uri + '/info', {
-                    display_name: this.display_name,
                     biography: this.biography,
-                    nickname: this.nickname,
-                    confidential: this.confidential_flag
+                    confidential: this.confidential_flag,
+                    display_name: this.display_name,
+                    email: this.user.email,
+                    nickname: this.nickname
                 }).then(response => {
-                    this.$emit('show-alert', response.data.message)
+                    this.$emit('show-alert', response.data.message);
+                }).catch(error => {
+                    this.$emit('show-alert', 'Oh no! An error occurred please try again.')
                 })
             },
             editImage () {

@@ -43,11 +43,9 @@
                     entity_type: this.entityType,
                     image_type: this.imageType
                 }).then(response => {
-                    if (response.data.status === '200') {
-                        this.$emit('image-upload', response.data.message)
-                    }
+                    this.$emit('image-upload', response.data.message)
                 }).catch(error =>  {
-                    console.log(error)
+                    this.$emit('image-upload', 'Oh no! An error occurred please try again.')
                 })
             },
             imageInit() {

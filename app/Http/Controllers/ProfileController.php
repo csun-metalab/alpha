@@ -56,9 +56,9 @@ class ProfileController extends Controller
                 'profile_image' => $request->profile_image,
                 'image_type' => $request->image_type,
                 'entity_type' => $request->entity_type,
-                'secret_key' => env('SECRET_KEY')
+                'secret_key' => config('webservices.secret_key')
             ]);
-            $response = $guzzle->post(env('MEDIA_URL').$emailUri.'/photo');
+            $response = $guzzle->post(config('webservices.media_url').$emailUri.'/photo');
             $guzzleResponse = $guzzle->resolveResponseBody($response, 'json');
             if ($guzzleResponse->status === '200') {
                 return [
@@ -81,7 +81,7 @@ class ProfileController extends Controller
      * @param $emailUri
      * @return array
      */
-    public function postStoreInfo(Request $request, $emailUri)
+    public function postStoreInfo(Request $request)
     {
         $validator = Validator::make($request->all(),
             [
@@ -99,26 +99,27 @@ class ProfileController extends Controller
         }
         $guzzle = HandlerGuzzleFactory::fromDefaults();
         $guzzle->setJsonBody([
+            'email' => $request->email,
             'biography' => $request->biography,
             'confidential' => $request->confidential,
             'display_name' => $request->display_name,
             'nick_name' => $request->nickname,
-            'secret' => env('SECRET_KEY')
         ]);
-        $response = $guzzle->post(env('DIRECTORY_URL').'members/update-info');
+        $guzzle->setHeader('X-API-Key' , config('webservices.secret_key'), false);
+        $response = $guzzle->post(config('webservices.directory_url').'members/update-info');
         $guzzleResponse = $guzzle->resolveResponseBody($response, 'json');
         if ($guzzleResponse->status === '200') {
-            return [
+            return response()->json([
                 'status' => '200',
                 'success' => 'true',
                 'message' => 'Your information was successfully updated.'
-            ];
+            ]);
         } else {
-            return [
+            return response()->json([
                 'status' => '400',
                 'success' => 'false',
                 'message' => 'An error occurred, please try again.'
-            ];
+            ]);
         }
     }
 }

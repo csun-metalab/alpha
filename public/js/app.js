@@ -16794,11 +16794,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 entity_type: this.entityType,
                 image_type: this.imageType
             }).then(function (response) {
-                if (response.data.status === '200') {
-                    _this.$emit('image-upload', response.data.message);
-                }
+                _this.$emit('image-upload', response.data.message);
             }).catch(function (error) {
-                console.log(error);
+                _this.$emit('image-upload', 'Oh no! An error occurred please try again.');
             });
         },
         imageInit: function imageInit() {
@@ -16960,16 +16958,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['user'],
     data: function data() {
         return {
-            display_name: String,
-            nickname: String,
             biography: String,
-            confidential_flag: false
+            confidential_flag: Boolean,
+            display_name: String,
+            email: String,
+            nickname: String
         };
     },
     created: function created() {
         this.display_name = this.user.display_name;
         this.nickname = this.user.nickname;
         this.biography = this.user.directory_data.biography;
+        this.confidential_flag = !!this.user.directory_data.confidential;
     },
 
     methods: {
@@ -16977,12 +16977,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             window.axios.post(this.user.email_uri + '/info', {
-                display_name: this.display_name,
                 biography: this.biography,
-                nickname: this.nickname,
-                confidential: this.confidential_flag
+                confidential: this.confidential_flag,
+                display_name: this.display_name,
+                email: this.user.email,
+                nickname: this.nickname
             }).then(function (response) {
                 _this.$emit('show-alert', response.data.message);
+            }).catch(function (error) {
+                _this.$emit('show-alert', 'Oh no! An error occurred please try again.');
             });
         },
         editImage: function editImage() {
@@ -17005,7 +17008,7 @@ var render = function() {
         _c("img", {
           staticClass: "img--circle",
           attrs: {
-            src: this.user.profile_image,
+            src: this.user.directory_data.profile_image,
             alt: this.user.display_name + "'s Profile Image"
           }
         }),
@@ -17119,12 +17122,12 @@ var render = function() {
               ],
               attrs: { type: "radio", id: "public" },
               domProps: {
-                value: true,
-                checked: _vm._q(_vm.confidential_flag, true)
+                value: false,
+                checked: _vm._q(_vm.confidential_flag, false)
               },
               on: {
                 change: function($event) {
-                  _vm.confidential_flag = true
+                  _vm.confidential_flag = false
                 }
               }
             }),
@@ -17148,12 +17151,12 @@ var render = function() {
               ],
               attrs: { type: "radio", id: "private" },
               domProps: {
-                value: false,
-                checked: _vm._q(_vm.confidential_flag, false)
+                value: true,
+                checked: _vm._q(_vm.confidential_flag, true)
               },
               on: {
                 change: function($event) {
-                  _vm.confidential_flag = false
+                  _vm.confidential_flag = true
                 }
               }
             }),
@@ -17288,7 +17291,7 @@ var render = function() {
                 })
               : _c("image-upload", {
                   attrs: {
-                    "profile-image": this.user.profile_image,
+                    "profile-image": this.user.directory_data.profile_image,
                     "display-name": this.user.display_name,
                     "entity-type": this.user.affiliation,
                     "email-uri": this.user.email_uri

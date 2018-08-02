@@ -14,8 +14,8 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             if (auth()->user()->affiliation) {
                 $guzzle = HandlerGuzzleFactory::fromDefaults();
-                $response = $guzzle->get(env('DIRECTORY_URL').
-                    'members/email/'. str_replace('nr_', '', auth()->user()->email));
+                $response = $guzzle->get(config('webservices.directory_url').
+                    'members/email/'. auth()->user()->email);
                 $response = $guzzle->resolveResponseBody($response, 'json');
                 auth()->user()->directory_data = $response->people;
                 session()->put('user', auth()->user());

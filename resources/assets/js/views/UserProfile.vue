@@ -11,7 +11,7 @@
                            v-on:show-alert="showPopUpAlert"
                 />
                 <image-upload v-else
-                    v-bind:profile-image="this.user.profile_image"
+                    v-bind:profile-image="this.user.directory_data.profile_image"
                     v-bind:display-name="this.user.display_name"
                     v-bind:entity-type="this.user.affiliation"
                     v-bind:email-uri="this.user.email_uri"

@@ -41,19 +41,16 @@ class User extends MetaUser
         'updated_at',
     ];
 
+    /**
+     * @var array
+     */
     protected $appends = [
-        'profile_image',
         'email_uri'
     ];
 
     protected function scopeIsStudent($query)
     {
         return $query->where('affiliation', 'student');
-    }
-
-    public function getProfileImageAttribute()
-    {
-        return env('PROFILE_IMAGE_URL').$this->email_uri.'/avatar';
     }
 
     public function getEmailUriAttribute()
