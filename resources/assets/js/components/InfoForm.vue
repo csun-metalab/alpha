@@ -1,7 +1,5 @@
 <template>
-    <div class="row">
-        <div class="col-md-4 col-md-push-4">
-            <div class="form__group profile-avatar profile-img">
+    <div>            <div class="form__group profile-avatar profile-img">
                 <img :src="this.user.directory_data.profile_image" class="img--circle" :alt="this.user.display_name + '\'s Profile Image'">
                 <a href="#" class="edit-img" @click.prevent="editImage">Edit Image</a>
             </div>
@@ -33,7 +31,6 @@
             <div class="form__group type--center">
                 <button @click.prevent="editInfo" role="button" class="btn btn-primary">Update Information</button>
             </div>
-        </div>
     </div>
 </template>
 
