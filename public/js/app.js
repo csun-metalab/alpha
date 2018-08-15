@@ -15396,6 +15396,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -15540,8 +15550,14 @@ var staticRenderFns = [
       "nav",
       { staticClass: "navbar navbar-metaphor navbar-expand-sm" },
       [
-        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-          _c("span", { staticClass: "sr-only" }, [_vm._v("CSUN Logo")])
+        _c(
+          "a",
+          { staticClass: "navbar-brand", attrs: { href: "//www.csun.edu" } },
+          [_c("span", { staticClass: "sr-only" }, [_vm._v("CSUN Logo")])]
+        ),
+        _vm._v(" "),
+        _c("span", { staticClass: "navbar-brand__sub-brand" }, [
+          _vm._v("Alpha")
         ]),
         _vm._v(" "),
         _c(

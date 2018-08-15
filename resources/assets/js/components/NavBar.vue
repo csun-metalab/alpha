@@ -1,18 +1,8 @@
 <template>
-    <nav class="navbar navbar-metaphor navbar-expand-sm">
-           <a class="navbar-brand" href="#"> <span class="sr-only">CSUN Logo</span> </a>
-           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-             <span class="navbar-toggler-icon"></span>
-           </button>
-           <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-             <div class="navbar-nav text-center">
-               <a class="nav-item nav-link active" href="#">Home</a>
-               <a class="nav-item nav-link" href="#">Features</a>
-               <a class="nav-item nav-link" href="#">Pricing</a>
-             </div>
-           </div>
-         </nav>
-    <!-- <div class="header">
+
+<!-- Copy content from here -->
+    <!--
+        <div class="header">
         <nav class="primary-nav">
             <div class="container">
                 <div class="primary-nav__mobile">
@@ -32,6 +22,26 @@
             </div>
         </nav>
     </div> -->
+
+
+
+        <nav class="navbar navbar-metaphor navbar-expand-sm">
+        <a class="navbar-brand" href="//www.csun.edu"> <span class="sr-only">CSUN Logo</span> </a> <span class="navbar-brand__sub-brand">Alpha</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav text-center">
+            <a class="nav-item nav-link active" href="#">Home</a>
+            <a class="nav-item nav-link" href="#">Features</a>
+            <a class="nav-item nav-link" href="#">Pricing</a>
+            </div>
+        </div>
+        </nav>
+
+
+
+
 </template>
 
 <script>
