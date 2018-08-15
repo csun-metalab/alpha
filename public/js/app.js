@@ -15405,7 +15405,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -15539,7 +15538,53 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "nav",
+    { staticClass: "container navbar navbar-metaphor navbar-expand-sm" },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("span", { staticClass: "navbar-brand__sub-brand" }, [_vm._v("Alpha")]),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "collapse navbar-collapse justify-content-end",
+          attrs: { id: "navbarNavAltMarkup" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "navbar-nav text-center",
+              class: { "nav-item nav-link active": _vm.activeClass }
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-item nav-link active",
+                  attrs: { href: this.url }
+                },
+                [_vm._v("Home")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "nav-item nav-link",
+                  attrs: { href: this.url + "/logout" }
+                },
+                [_vm._v("Logout")]
+              )
+            ]
+          )
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -15547,67 +15592,29 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "nav",
-      { staticClass: "navbar navbar-metaphor navbar-expand-sm" },
-      [
-        _c(
-          "a",
-          { staticClass: "navbar-brand", attrs: { href: "//www.csun.edu" } },
-          [_c("span", { staticClass: "sr-only" }, [_vm._v("CSUN Logo")])]
-        ),
-        _vm._v(" "),
-        _c("span", { staticClass: "navbar-brand__sub-brand" }, [
-          _vm._v("Alpha")
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "navbar-toggler",
-            attrs: {
-              type: "button",
-              "data-toggle": "collapse",
-              "data-target": "#navbarNavAltMarkup",
-              "aria-controls": "navbarNavAltMarkup",
-              "aria-expanded": "false",
-              "aria-label": "Toggle navigation"
-            }
-          },
-          [_c("span", { staticClass: "navbar-toggler-icon" })]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "collapse navbar-collapse justify-content-end",
-            attrs: { id: "navbarNavAltMarkup" }
-          },
-          [
-            _c("div", { staticClass: "navbar-nav text-center" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-item nav-link active",
-                  attrs: { href: "#" }
-                },
-                [_vm._v("Home")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                { staticClass: "nav-item nav-link", attrs: { href: "#" } },
-                [_vm._v("Features")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                { staticClass: "nav-item nav-link", attrs: { href: "#" } },
-                [_vm._v("Pricing")]
-              )
-            ])
-          ]
-        )
-      ]
+      "a",
+      { staticClass: "navbar-brand", attrs: { href: "//www.csun.edu" } },
+      [_c("span", { staticClass: "sr-only" }, [_vm._v("CSUN Logo")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarNavAltMarkup",
+          "aria-controls": "navbarNavAltMarkup",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon" })]
     )
   }
 ]

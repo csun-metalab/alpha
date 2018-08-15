@@ -10808,6 +10808,22 @@ div.datepicker-calendar.default button.datepicker-close {
   color: #000;
 }
 
+.navbar-brand__sub-brand {
+  display: block;
+  float: left;
+  padding-left: 8px;
+  margin: 0px 0 0px 8px;
+  overflow: hidden;
+  font-size: 20px;
+  font-weight: 300;
+  color: #4a4a4a;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  border-left: 1px solid #ccc;
+}
+
 .edit-img {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.75);

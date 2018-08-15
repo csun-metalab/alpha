@@ -1,6 +1,6 @@
 <template>
 
-<!-- Copy content from here -->
+<!-- Copy CONTENT from here -->
     <!--
         <div class="header">
         <nav class="primary-nav">
@@ -25,16 +25,15 @@
 
 
 
-        <nav class="navbar navbar-metaphor navbar-expand-sm">
+        <nav class="container navbar navbar-metaphor navbar-expand-sm">
         <a class="navbar-brand" href="//www.csun.edu"> <span class="sr-only">CSUN Logo</span> </a> <span class="navbar-brand__sub-brand">Alpha</span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-            <div class="navbar-nav text-center">
-            <a class="nav-item nav-link active" href="#">Home</a>
-            <a class="nav-item nav-link" href="#">Features</a>
-            <a class="nav-item nav-link" href="#">Pricing</a>
+            <div class="navbar-nav text-center" :class="{ 'nav-item nav-link active': activeClass }">
+            <a class="nav-item nav-link active" :href="this.url">Home</a>
+            <a class="nav-item nav-link" :href="this.url + '/logout'">Logout</a>
             </div>
         </div>
         </nav>
