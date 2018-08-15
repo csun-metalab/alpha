@@ -1,5 +1,18 @@
 <template>
-    <div class="header">
+    <nav class="navbar navbar-metaphor navbar-expand-sm">
+           <a class="navbar-brand" href="#"> <span class="sr-only">CSUN Logo</span> </a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+             <div class="navbar-nav text-center">
+               <a class="nav-item nav-link active" href="#">Home</a>
+               <a class="nav-item nav-link" href="#">Features</a>
+               <a class="nav-item nav-link" href="#">Pricing</a>
+             </div>
+           </div>
+         </nav>
+    <!-- <div class="header">
         <nav class="primary-nav">
             <div class="container">
                 <div class="primary-nav__mobile">
@@ -18,29 +31,29 @@
                 </ul>
             </div>
         </nav>
-    </div>
+    </div> -->
 </template>
 
 <script>
-    import BackButton from './BackButton'
-    export default {
-        data () {
-            return {
-                url: '',
-                activeClass: false
-            }
+import BackButton from './BackButton';
+export default {
+    data() {
+        return {
+            url: '',
+            activeClass: false,
+        };
+    },
+    created() {
+        this.url = window.appURL;
+    },
+    components: {
+        'back-button': BackButton,
+    },
+    methods: {
+        setActiveClass: function() {
+            this.activeClass = !this.activeClass;
         },
-        created () {
-          this.url = window.appURL
-        },
-        components: {
-            'back-button': BackButton
-        },
-        methods: {
-            setActiveClass: function () {
-                this.activeClass = !this.activeClass;
-            }
-        },
-        props: ['app-name']
-    }
+    },
+    props: ['app-name'],
+};
 </script>

@@ -15383,6 +15383,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -15516,79 +15529,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "header" }, [
-    _c("nav", { staticClass: "primary-nav" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "primary-nav__mobile" }, [
-          _c(
-            "div",
-            {
-              staticClass: "primary-nav__btn",
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  _vm.setActiveClass()
-                }
-              }
-            },
-            [
-              _c("div", { staticClass: "bar" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "bar" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "bar" })
-            ]
-          ),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "primary-nav__sub-brand",
-              attrs: { href: this.url }
-            },
-            [_vm._v(_vm._s(this.appName))]
-          ),
-          _vm._v(" "),
-          _c("a", { staticClass: "sr-only", attrs: { href: "#main" } }, [
-            _vm._v("Skip to main content")
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "ul",
-          {
-            staticClass: "primary-nav__links",
-            class: { "primary-nav__links--open": _vm.activeClass }
-          },
-          [
-            _c("li", [
-              _c(
-                "a",
-                {
-                  staticClass: "primary-nav__link active",
-                  attrs: { href: this.url }
-                },
-                [_vm._v("Home")]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c(
-                "a",
-                {
-                  staticClass: "primary-nav__link",
-                  attrs: { href: this.url + "/logout" }
-                },
-                [_vm._v("Logout")]
-              )
-            ])
-          ]
-        )
-      ])
-    ])
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -15596,12 +15537,60 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "a",
-      { staticClass: "primary-nav__brand", attrs: { href: "//www.csun.edu" } },
+      "nav",
+      { staticClass: "navbar navbar-metaphor navbar-expand-sm" },
       [
-        _c("span", { staticClass: "sr-only" }, [
-          _vm._v("California State University, Northridge (CSUN)")
-        ])
+        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
+          _c("span", { staticClass: "sr-only" }, [_vm._v("CSUN Logo")])
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "navbar-toggler",
+            attrs: {
+              type: "button",
+              "data-toggle": "collapse",
+              "data-target": "#navbarNavAltMarkup",
+              "aria-controls": "navbarNavAltMarkup",
+              "aria-expanded": "false",
+              "aria-label": "Toggle navigation"
+            }
+          },
+          [_c("span", { staticClass: "navbar-toggler-icon" })]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse navbar-collapse justify-content-end",
+            attrs: { id: "navbarNavAltMarkup" }
+          },
+          [
+            _c("div", { staticClass: "navbar-nav text-center" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-item nav-link active",
+                  attrs: { href: "#" }
+                },
+                [_vm._v("Home")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                { staticClass: "nav-item nav-link", attrs: { href: "#" } },
+                [_vm._v("Features")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                { staticClass: "nav-item nav-link", attrs: { href: "#" } },
+                [_vm._v("Pricing")]
+              )
+            ])
+          ]
+        )
       ]
     )
   }
@@ -15690,7 +15679,7 @@ var staticRenderFns = [
                   }
                 }),
                 _vm._v(" "),
-                _c("ul", { staticClass: "list--unstyled" }, [
+                _c("ul", { staticClass: "list-unstyled" }, [
                   _c("li", [
                     _c("a", { attrs: { href: "//metalab.csun.edu" } }, [
                       _vm._v("metalab.csun.edu")
@@ -15701,7 +15690,7 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-6" }, [
-              _c("ul", { staticClass: "list--unstyled metalab-tagline" }, [
+              _c("ul", { staticClass: "list-unstyled metalab-tagline" }, [
                 _c("li", [_vm._v("Explore. Learn. Go Beyond.")])
               ])
             ])
@@ -15839,7 +15828,7 @@ var render = function() {
             _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "col-sm-9" }, [
-              _c("ul", { staticClass: "list--unstyled" }, [
+              _c("ul", { staticClass: "list-unstyled" }, [
                 _c("li", [
                   _c("strong", [_vm._v(_vm._s(this.appName))]),
                   _vm._v(" "),
@@ -15897,7 +15886,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-sm-7" }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-sm-4" }, [
-          _c("ul", { staticClass: "list--unstyled" }, [
+          _c("ul", { staticClass: "list-unstyled" }, [
             _c("li", [
               _c(
                 "a",
@@ -15924,7 +15913,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-sm-4" }, [
-          _c("ul", { staticClass: "list--unstyled" }, [
+          _c("ul", { staticClass: "list-unstyled" }, [
             _c("li", [
               _c(
                 "a",
@@ -15967,7 +15956,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-sm-4" }, [
-          _c("ul", { staticClass: "list--unstyled" }, [
+          _c("ul", { staticClass: "list-unstyled" }, [
             _c("li", [
               _c(
                 "a",
