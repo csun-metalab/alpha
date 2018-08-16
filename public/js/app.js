@@ -16156,6 +16156,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
@@ -16168,6 +16173,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   }
 });
 
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  "use strict";
+
+  window.addEventListener("load", function () {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName("needs-validation");
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function (form) {
+      form.addEventListener("submit", function (event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add("was-validated");
+      }, false);
+    });
+  }, false);
+})();
+
 /***/ }),
 /* 55 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16179,10 +16204,12 @@ var render = function() {
   return _c(
     "form",
     {
+      staticClass: "needs-validation",
       attrs: {
         method: "POST",
         action: _vm.loginUrl(),
-        "accept-charset": "UTF-8"
+        "accept-charset": "UTF-8",
+        novalidate: ""
       }
     },
     [
@@ -16191,18 +16218,16 @@ var render = function() {
         domProps: { value: _vm.csrfToken() }
       }),
       _vm._v(" "),
-      _c("form", [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "form-group" },
-          [_c("loading-button", { attrs: { title: "Log-In" } })],
-          1
-        )
-      ])
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [_c("loading-button", { attrs: { title: "Log-In" } })],
+        1
+      )
     ]
   )
 }
@@ -16212,16 +16237,30 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c(
-        "label",
-        { staticClass: "form-control--required", attrs: { for: "username" } },
-        [_vm._v("Username or Email")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { name: "username", type: "text", id: "username" }
-      })
+      _c("div", { staticClass: "col-md-4" }, [
+        _c(
+          "label",
+          { staticClass: "form-control--required", attrs: { for: "username" } },
+          [_vm._v("Username or Email")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            name: "username",
+            type: "text",
+            id: "username",
+            placeholder: "Username or Email",
+            required: ""
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "invalid-feedback" }, [
+          _vm._v(
+            "\n                    Please enter your CSUN username (ie. jos8693) or your CSUN email address.\n                "
+          )
+        ])
+      ])
     ])
   },
   function() {
@@ -16229,16 +16268,18 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c(
-        "label",
-        { staticClass: "form-control--required", attrs: { for: "password" } },
-        [_vm._v("Password")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { name: "password", type: "password", id: "password" }
-      })
+      _c("div", { staticClass: "col-md-4" }, [
+        _c(
+          "label",
+          { staticClass: "form-control--required", attrs: { for: "password" } },
+          [_vm._v("Password")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { name: "password", type: "password", id: "password" }
+        })
+      ])
     ])
   }
 ]
