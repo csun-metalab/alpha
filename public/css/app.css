@@ -166,7 +166,7 @@
  */
 @font-face {
   font-family: FSLola;
-  src: url("../fonts/FSLolaWeb-Bold.woff2") format("woff2"), url("../fonts/FSLolaWeb-Bold.woff") format("woff");
+  src: url("//s3-us-west-2.amazonaws.com/metalab-fonts/FSLolaWeb-Bold.woff2") format("woff2"), url("//s3-us-west-2.amazonaws.com/metalab-fonts/FSLolaWeb-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -174,7 +174,7 @@
 
 @font-face {
   font-family: ATCOverlook;
-  src: url("../fonts/ATCOverlook-Regular.woff2") format("woff2"), url("../fonts/ATCOverlook-Regular.woff") format("woff");
+  src: url("//s3-us-west-2.amazonaws.com/metalab-fonts/ATCOverlook-Regular.woff2") format("woff2"), url("//s3-us-west-2.amazonaws.com/metalab-fonts/ATCOverlook-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -182,7 +182,7 @@
 
 @font-face {
   font-family: ATCOverlook;
-  src: url("../fonts/ATCOverlook-RegularItalic.woff2") format("woff2"), url("../fonts/ATCOverlook-RegularItalic.woff") format("woff");
+  src: url("//s3-us-west-2.amazonaws.com/metalab-fonts/ATCOverlook-RegularItalic.woff2") format("woff2"), url("//s3-us-west-2.amazonaws.com/metalab-fonts/ATCOverlook-RegularItalic.woff") format("woff");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -190,7 +190,7 @@
 
 @font-face {
   font-family: ATCOverlook;
-  src: url("../fonts/ATCOverlook-Bold.woff2") format("woff2"), url("../fonts/ATCOverlook-Bold.woff") format("woff");
+  src: url("//s3-us-west-2.amazonaws.com/metalab-fonts/ATCOverlook-Bold.woff2") format("woff2"), url("//s3-us-west-2.amazonaws.com/metalab-fonts/ATCOverlook-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -198,7 +198,7 @@
 
 @font-face {
   font-family: ATCOverlook;
-  src: url("../fonts/ATCOverlook-BoldItalic.woff2") format("woff2"), url("../fonts/ATCOverlook-BoldItalic.woff") format("woff");
+  src: url("//s3-us-west-2.amazonaws.com/metalab-fonts/ATCOverlook-BoldItalic.woff2") format("woff2"), url("//s3-us-west-2.amazonaws.com/metalab-fonts/ATCOverlook-BoldItalic.woff") format("woff");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
@@ -10822,6 +10822,12 @@ div.datepicker-calendar.default button.datepicker-close {
   white-space: nowrap;
   cursor: pointer;
   border-left: 1px solid #ccc;
+}
+
+.form-control--required::after {
+  margin-left: 2px;
+  color: #d00d2d;
+  content: "*";
 }
 
 .edit-img {
