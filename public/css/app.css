@@ -10808,6 +10808,10 @@ div.datepicker-calendar.default button.datepicker-close {
   color: #000;
 }
 
+.btn {
+  margin-top: 1rem;
+}
+
 .navbar-brand__sub-brand {
   display: block;
   float: left;
@@ -10828,6 +10832,10 @@ div.datepicker-calendar.default button.datepicker-close {
   margin-left: 2px;
   color: #d00d2d;
   content: "*";
+}
+
+.h1__login {
+  margin: 3rem 0;
 }
 
 .edit-img {
@@ -10876,4 +10884,8 @@ body {
 /* Not required for template or sticky footer method. */
 .csun-seal {
   margin: 1rem;
+}
+
+.footer__links {
+  margin-top: 1.3rem;
 }

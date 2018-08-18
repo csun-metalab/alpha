@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="col-sm-7">
-                    <div class="row">
+                    <div class="row footer__links">
                         <div class="col-sm-4">
                             <ul class="list-unstyled">
                                 <li><a href="//www.csun.edu/emergency/" target="_blank">Emergency Information</a></li>

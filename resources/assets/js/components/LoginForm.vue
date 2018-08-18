@@ -17,47 +17,47 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <loading-button v-bind:title="'Log-In'"></loading-button>
+                    <loading-button v-bind:title="'Log In'"></loading-button>
                 </div>
     </form>
 </template>
 
 <script>
 export default {
-  methods: {
-    csrfToken: function() {
-      return window.appToken;
+    methods: {
+        csrfToken: function() {
+            return window.appToken;
+        },
+        loginUrl: function() {
+            return window.appURL + '/login';
+        },
     },
-    loginUrl: function() {
-      return window.appURL + "/login";
-    }
-  }
 };
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function() {
-  "use strict";
-  window.addEventListener(
-    "load",
-    function() {
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      var forms = document.getElementsByClassName("needs-validation");
-      // Loop over them and prevent submission
-      var validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener(
-          "submit",
-          function(event) {
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add("was-validated");
-          },
-          false
-        );
-      });
-    },
-    false
-  );
+    'use strict';
+    window.addEventListener(
+        'load',
+        function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener(
+                    'submit',
+                    function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    },
+                    false
+                );
+            });
+        },
+        false
+    );
 })();
 </script>

@@ -15808,7 +15808,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-sm-7" }, [
-      _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "row footer__links" }, [
         _c("div", { staticClass: "col-sm-4" }, [
           _c("ul", { staticClass: "list-unstyled" }, [
             _c("li", [
@@ -15945,7 +15945,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "col-md-4" }, [
     _vm.ok === false
       ? _c(
           "button",
@@ -15955,15 +15955,15 @@ var render = function() {
             on: { click: _vm.buttonPressed }
           },
           [
-            _c("i", { staticClass: "fa fa-sign-in-alt" }),
+            _c("i", { staticClass: "fas fa-sign-in-alt" }),
             _vm._v("\n        " + _vm._s(_vm.title) + "\n    ")
           ]
         )
       : _vm._e(),
     _vm._v(" "),
     _vm.ok
-      ? _c("div", { staticClass: "type--center" }, [
-          _c("i", { staticClass: "fa fa-spinner fa-spin fa-3x fa-blue" })
+      ? _c("div", { staticClass: "text-center" }, [
+          _c("i", { staticClass: "fas fa-spinner fa-spin fa-3x fa-blue" })
         ])
       : _vm._e()
   ])
@@ -16057,34 +16057,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  methods: {
-    csrfToken: function csrfToken() {
-      return window.appToken;
-    },
-    loginUrl: function loginUrl() {
-      return window.appURL + "/login";
+    methods: {
+        csrfToken: function csrfToken() {
+            return window.appToken;
+        },
+        loginUrl: function loginUrl() {
+            return window.appURL + '/login';
+        }
     }
-  }
 });
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
-  "use strict";
+    'use strict';
 
-  window.addEventListener("load", function () {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName("needs-validation");
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function (form) {
-      form.addEventListener("submit", function (event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add("was-validated");
-      }, false);
-    });
-  }, false);
+    window.addEventListener('load', function () {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
 })();
 
 /***/ }),
@@ -16119,7 +16119,7 @@ var render = function() {
       _c(
         "div",
         { staticClass: "form-group" },
-        [_c("loading-button", { attrs: { title: "Log-In" } })],
+        [_c("loading-button", { attrs: { title: "Log In" } })],
         1
       )
     ]
