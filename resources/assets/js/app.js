@@ -11,7 +11,6 @@ Vue.use(Croppa);
  */
 
 Vue.component('nav-bar', require('./components/NavBar.vue'));
-Vue.component('meta-footer', require('./components/MetaFooter.vue'));
 Vue.component('csun-footer', require('./components/CsunFooter.vue'));
 Vue.component('loading-button', require('./components/LoadingButton.vue'));
 Vue.component('login-form', require('./components/LoginForm.vue'));
