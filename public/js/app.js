@@ -16956,7 +16956,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row justify-content-center" }, [
-    _c("div", { staticClass: "col-5" }, [
+    _c("div", { staticClass: "col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5" }, [
       _c("form", [
         _c("div", { staticClass: "form-group profile-avatar profile-img" }, [
           _c("img", {

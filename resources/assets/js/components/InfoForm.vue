@@ -1,6 +1,6 @@
 <template>
 <div class="row justify-content-center">
-        <div class="col-5">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
         <form>
             <div class="form-group profile-avatar profile-img">
                 <img :src="this.user.directory_data.profile_image" class="img--circle" :alt="this.user.display_name + '\'s Profile Image'">
