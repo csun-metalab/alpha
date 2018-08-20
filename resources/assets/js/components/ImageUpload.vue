@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <croppa v-model="myCroppa"
                 accept="image/*"
                 remove-button-color="black"

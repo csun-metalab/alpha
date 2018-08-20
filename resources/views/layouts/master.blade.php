@@ -20,13 +20,11 @@
 
         <div id="app">
             <nav-bar app-name="{{ config('app.name') }}"></nav-bar>
-            <div class="main main--metalab section">
                 <div class="container">
                     @yield('content')
                 </div>
                 <csun-footer app-name="{{ config('app.name') }}"></csun-footer>
                 <meta-footer></meta-footer>
-            </div>
         </div>
     </body>
     <script src="{{ asset('js/app.js') }}"></script>

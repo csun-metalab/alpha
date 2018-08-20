@@ -1,10 +1,9 @@
 .edit-img {
     position: absolute;
     background-color: rgba(255, 255, 255, 0.75);
-    z-index: 1;
-    right: 0;
-    left: 0;
-    bottom: 0px;
+    z-index: 1; // right: 0;
+    // left: 0;
+    // bottom: 0px;
     text-align: center;
     padding: 5px 0 15px;
     font-weight: bold;

@@ -1,5 +1,5 @@
 <template>
-    <div>
+        <div class="col">
         <form>
             <div class="form-group profile-avatar profile-img">
                 <img :src="this.user.directory_data.profile_image" class="img--circle" :alt="this.user.display_name + '\'s Profile Image'">
@@ -7,24 +7,24 @@
             </div>
             <div class="form-group">
                 <label for="display-name">Display Name</label>
-                <input class="form-control" id="display-name" name="display-name" type="text" v-model="display_name">
+                <input class="form-control" id="display-name" name="display-name" type="text" placeholder="Name to display on profile" v-model="display_name">
             </div>
             <div class="form-group">
-                <label for="nickname">Nickname</label>
-                <input class="form-control" id="nickname" name="nickname" type="text" v-model="nickname">
+                <label for="nickname">Nickname (Optional)</label>
+                <input class="form-control" id="nickname" name="nickname" type="text" placeholder="Nickname" v-model="nickname">
             </div>
             <div class="form-group">
                 <label for="biography">Biography</label>
-                <textarea id="biography" name="biography" v-model="biography"></textarea>
+                <textarea class="form-control" rows="5" id="biography" name="biography" placeholder="Tell us about yourself!" v-model="biography"></textarea>
             </div>
             <strong>Profile Visibility</strong>
             <div class="form-check">
-                        <input class="form-check-input" type="radio" id="public" :value="false" v-model="confidential_flag">
-                        <label class="form-check-label" for="public">Public</label>
+                <input class="form-check-input" type="radio" id="public" :value="false" v-model="confidential_flag">
+                <label class="form-check-label" for="public">Public</label>
             </div>
             <div class="form-check">
-                        <input class="form-check-input" type="radio" id="private" :value="true" v-model="confidential_flag">
-                        <label class="form-check-label" for="private">Private</label>
+                <input class="form-check-input" type="radio" id="private" :value="true" v-model="confidential_flag">
+                <label class="form-check-label" for="private">Private</label>
             </div>
             <div class="form-group type--center">
                 <button @click.prevent="editInfo" role="button" class="btn btn-primary">Update Information</button>

@@ -16778,6 +16778,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "container" },
     [
       _c(
         "croppa",
@@ -16952,7 +16953,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "col" }, [
     _c("form", [
       _c("div", { staticClass: "form-group profile-avatar profile-img" }, [
         _c("img", {
@@ -16994,7 +16995,12 @@ var render = function() {
             }
           ],
           staticClass: "form-control",
-          attrs: { id: "display-name", name: "display-name", type: "text" },
+          attrs: {
+            id: "display-name",
+            name: "display-name",
+            type: "text",
+            placeholder: "Name to display on profile"
+          },
           domProps: { value: _vm.display_name },
           on: {
             input: function($event) {
@@ -17008,7 +17014,9 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "nickname" } }, [_vm._v("Nickname")]),
+        _c("label", { attrs: { for: "nickname" } }, [
+          _vm._v("Nickname (Optional)")
+        ]),
         _vm._v(" "),
         _c("input", {
           directives: [
@@ -17020,7 +17028,12 @@ var render = function() {
             }
           ],
           staticClass: "form-control",
-          attrs: { id: "nickname", name: "nickname", type: "text" },
+          attrs: {
+            id: "nickname",
+            name: "nickname",
+            type: "text",
+            placeholder: "Nickname"
+          },
           domProps: { value: _vm.nickname },
           on: {
             input: function($event) {
@@ -17045,7 +17058,13 @@ var render = function() {
               expression: "biography"
             }
           ],
-          attrs: { id: "biography", name: "biography" },
+          staticClass: "form-control",
+          attrs: {
+            rows: "5",
+            id: "biography",
+            name: "biography",
+            placeholder: "Tell us about yourself!"
+          },
           domProps: { value: _vm.biography },
           on: {
             input: function($event) {
@@ -17229,7 +17248,6 @@ var render = function() {
       _c("div", { staticClass: "row" }, [
         _c(
           "div",
-          { staticClass: "col-md-4 col-md-push-4" },
           [
             this.uploadPicture == false
               ? _c("info-form", {

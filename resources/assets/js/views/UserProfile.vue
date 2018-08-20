@@ -4,7 +4,7 @@
                       v-bind:message="this.alertMessage"
                       v-on:close-alert="showAlert = !showAlert"/>
         <div class="row">
-            <div class="col-md-4 col-md-push-4">
+            <div>
                 <info-form v-if="this.uploadPicture == false"
                            v-bind:user="this.user"
                            v-on:edit-photo="editPhoto"
@@ -24,40 +24,40 @@
 </template>
 
 <script>
-    import ImageUpload from '../components/ImageUpload'
-    import InfoForm from '../components/InfoForm'
-    import PopUpAlert from '../components/PopUpAlert'
-    export default {
-        props: ['user-info'],
-        components: {
-            'image-upload': ImageUpload,
-            'info-form': InfoForm,
-            'pop-up-alert': PopUpAlert
+import ImageUpload from '../components/ImageUpload';
+import InfoForm from '../components/InfoForm';
+import PopUpAlert from '../components/PopUpAlert';
+export default {
+    props: ['user-info'],
+    components: {
+        'image-upload': ImageUpload,
+        'info-form': InfoForm,
+        'pop-up-alert': PopUpAlert,
+    },
+    data() {
+        return {
+            user: JSON.parse(this.userInfo),
+            display_name: '',
+            biography: '',
+            nickname: '',
+            confidential_flag: false,
+            uploadPicture: false,
+            showAlert: false,
+            alertMessage: '',
+        };
+    },
+    created() {
+        this.display_name = this.user.display_name;
+        this.biography = this.user.directory_data.biography;
+    },
+    methods: {
+        editPhoto() {
+            this.uploadPicture = true;
         },
-        data () {
-            return {
-                user: JSON.parse(this.userInfo),
-                display_name: '',
-                biography: '',
-                nickname:'',
-                confidential_flag: false,
-                uploadPicture: false,
-                showAlert: false,
-                alertMessage: ''
-            }
+        showPopUpAlert(type) {
+            this.alertMessage = type;
+            this.showAlert = true;
         },
-        created (){
-            this.display_name = this.user.display_name
-            this.biography = this.user.directory_data.biography
-        },
-        methods: {
-            editPhoto () {
-                this.uploadPicture = true
-            },
-            showPopUpAlert (type) {
-                this.alertMessage = type
-                this.showAlert = true
-            }
-        }
-    }
+    },
+};
 </script>
