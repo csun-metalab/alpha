@@ -15726,6 +15726,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['app-name']
@@ -15742,7 +15745,7 @@ var render = function() {
   return _c("footer", { staticClass: "footer" }, [
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-5" }, [
+        _c("div", { staticClass: "col-md-5" }, [
           _c("div", { staticClass: "row" }, [
             _vm._m(0),
             _vm._v(" "),
@@ -16951,7 +16954,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row justify-content-center" }, [
-    _c("div", { staticClass: "col-6" }, [
+    _c("div", { staticClass: "col-5" }, [
       _c("form", [
         _c("div", { staticClass: "form-group profile-avatar profile-img" }, [
           _c("img", {
@@ -17137,7 +17140,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group type--center" }, [
+        _c("div", { staticClass: "form-group text-center" }, [
           _c(
             "button",
             {

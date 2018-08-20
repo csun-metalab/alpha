@@ -2,11 +2,13 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-sm-5">
+                <!-- Footer Seal -->
+                <div class="col-md-5">
                     <div class="row">
                         <div class="col-sm-3 footer-seal">
                             <img src="//www.csun.edu/sites/default/themes/csun/images/footer-seal.png" alt="Seal for California State University, Northridge">
                         </div>
+                        <!-- CSUN address/contact -->
                         <div class="col-sm-9">
                             <ul class="list-unstyled">
                                 <li><strong>{{ this.appName }}</strong> <br>© California State University, Northridge</li>
@@ -16,6 +18,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Footer links -->
                 <div class="col-sm-7">
                     <div class="row footer__links">
                         <div class="col-sm-4">

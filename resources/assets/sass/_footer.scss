@@ -1,15 +1,4 @@
-// /* Footer Styles
-// -------------------------------------------------- */
-// .footer-seal {
-//     margin-bottom: 10px;
-// }
-// .csun-seal {
-//     margin: 1rem;
-// }
-// .footer__links {
-//     margin-top: 1.3rem;
-// }
-// /* Sticky footer styles
+// /* Sticky footer
 // -------------------------------------------------- */
 html {
     position: relative;
@@ -29,4 +18,19 @@ body {
     vertical-align: text-bottom;
     font-size: 1.3rem;
     height: 96px;
+}
+
+/* Footer Styles
+-------------------------------------------------- */
+
+.footer-seal {
+    margin-bottom: 10px;
+}
+
+.csun-seal {
+    margin: 1rem;
+}
+
+.footer__links {
+    margin-top: 1.3rem;
 }

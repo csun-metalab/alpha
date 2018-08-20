@@ -1,6 +1,6 @@
 <template>
 <div class="row justify-content-center">
-        <div class="col-6">
+        <div class="col-5">
         <form>
             <div class="form-group profile-avatar profile-img">
                 <img :src="this.user.directory_data.profile_image" class="img--circle" :alt="this.user.display_name + '\'s Profile Image'">
@@ -27,7 +27,7 @@
                 <input class="form-check-input" type="radio" id="private" :value="true" v-model="confidential_flag">
                 <label class="form-check-label" for="private">Private</label>
             </div>
-            <div class="form-group type--center">
+            <div class="form-group text-center">
                 <button @click.prevent="editInfo" role="button" class="btn btn-primary">Update Information</button>
             </div>
         </form>
