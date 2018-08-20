@@ -10809,7 +10809,7 @@ div.datepicker-calendar.default button.datepicker-close {
 }
 
 .btn {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .navbar-brand__sub-brand {
@@ -10838,15 +10838,31 @@ div.datepicker-calendar.default button.datepicker-close {
   margin: 3rem 0;
 }
 
-.edit-img {
+.form-check-label {
+  padding-left: 6px;
+  vertical-align: middle;
+}
+
+.form-check-input {
+  margin-top: 0.8rem;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 96px;
+  /* Margin bottom by footer height */
+}
+
+.footer {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.75);
-  z-index: 1;
-  text-align: center;
-  padding: 5px 0 15px;
-  font-weight: bold;
-  color: #4a4a4a;
-  font-size: 14px;
-  -webkit-transition: padding, 0.2s, ease-in-out;
-  transition: padding, 0.2s, ease-in-out;
+  bottom: 0;
+  width: 100%;
+  line-height: 2rem;
+  vertical-align: text-bottom;
+  font-size: 1.3rem;
+  height: 96px;
 }

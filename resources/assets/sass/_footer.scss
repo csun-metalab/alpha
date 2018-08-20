@@ -11,21 +11,22 @@
 // }
 // /* Sticky footer styles
 // -------------------------------------------------- */
-// html {
-//     position: relative;
-//     min-height: 100%;
-// }
-// body {
-//     margin-bottom: 150px;
-//     /* Margin bottom by footer height */
-// }
-// .footer {
-//     position: absolute;
-//     position: fixed;
-//     bottom: 0;
-//     width: 100%;
-//     line-height: 2rem;
-//     vertical-align: text-top;
-//     font-size: 1.3rem;
-//     height: 150px;
-// }
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 96px;
+    /* Margin bottom by footer height */
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 2rem;
+    vertical-align: text-bottom;
+    font-size: 1.3rem;
+    height: 96px;
+}

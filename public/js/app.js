@@ -15406,11 +15406,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -16266,10 +16261,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -16344,7 +16335,7 @@ exports = module.exports = __webpack_require__(58)(false);
 
 
 // module
-exports.push([module.i, "\n.croppa__image--radius {\n    border-radius: 50%;\n}\n", ""]);
+exports.push([module.i, "\n.croppa__image--radius {\n  border-radius: 50%;\n}\n", ""]);
 
 // exports
 
@@ -16723,6 +16714,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -16776,81 +16769,83 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c(
-        "croppa",
-        {
-          staticClass: "form__group croppa__image--radius",
-          attrs: {
-            accept: "image/*",
-            "remove-button-color": "black",
-            "remove-button-size": 35,
-            "prevent-white-space": "",
-            placeholder: "Select an image.",
-            "placeholder-font-size": 18
-          },
-          on: {
-            init: _vm.imageInit,
-            "image-remove": [
-              _vm.disableUploadImageButton,
-              function($event) {
-                _vm.$emit("image-remove")
-              }
-            ],
-            "new-image": _vm.enableUploadImageButton
-          },
-          model: {
-            value: _vm.myCroppa,
-            callback: function($$v) {
-              _vm.myCroppa = $$v
-            },
-            expression: "myCroppa"
-          }
-        },
-        [
-          _c("img", {
+  return _c("div", { staticClass: "container" }, [
+    _c(
+      "div",
+      { staticClass: "row" },
+      [
+        _c(
+          "croppa",
+          {
+            staticClass: "form__group croppa__image--radius",
             attrs: {
-              slot: "initial",
-              crossOrigin: "anonymous",
-              src: this.profileImage,
-              alt: this.displayName + "'s Profile Image"
+              accept: "image/*",
+              "remove-button-color": "black",
+              "remove-button-size": 35,
+              "prevent-white-space": "",
+              placeholder: "Select an image.",
+              "placeholder-font-size": 18
             },
-            slot: "initial"
-          })
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "form__group type--center" }, [
-        this.uploadImageBtn
-          ? _c(
-              "button",
-              {
-                staticClass: "btn btn-primary type--center",
-                attrs: { role: "button" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.uploadPhoto($event)
-                  }
+            on: {
+              init: _vm.imageInit,
+              "image-remove": [
+                _vm.disableUploadImageButton,
+                function($event) {
+                  _vm.$emit("image-remove")
                 }
+              ],
+              "new-image": _vm.enableUploadImageButton
+            },
+            model: {
+              value: _vm.myCroppa,
+              callback: function($$v) {
+                _vm.myCroppa = $$v
               },
-              [_vm._v("Save Image")]
-            )
-          : _c(
-              "button",
-              {
-                staticClass: "btn btn-default type--center",
-                attrs: { role: "button" }
+              expression: "myCroppa"
+            }
+          },
+          [
+            _c("img", {
+              attrs: {
+                slot: "initial",
+                crossOrigin: "anonymous",
+                src: this.profileImage,
+                alt: this.displayName + "'s Profile Image"
               },
-              [_vm._v("Save Image")]
-            )
-      ])
-    ],
-    1
-  )
+              slot: "initial"
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "form__group type--center" }, [
+          this.uploadImageBtn
+            ? _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary type--center",
+                  attrs: { role: "button" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.uploadPhoto($event)
+                    }
+                  }
+                },
+                [_vm._v("Save Image")]
+              )
+            : _c(
+                "button",
+                {
+                  staticClass: "btn btn-default type--center",
+                  attrs: { role: "button" }
+                },
+                [_vm._v("Save Image")]
+              )
+        ])
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -16868,6 +16863,8 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -16953,207 +16950,209 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col" }, [
-    _c("form", [
-      _c("div", { staticClass: "form-group profile-avatar profile-img" }, [
-        _c("img", {
-          staticClass: "img--circle",
-          attrs: {
-            src: this.user.directory_data.profile_image,
-            alt: this.user.display_name + "'s Profile Image"
-          }
-        }),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "edit-img",
-            attrs: { href: "#" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.editImage($event)
-              }
+  return _c("div", { staticClass: "row justify-content-center" }, [
+    _c("div", { staticClass: "col-6" }, [
+      _c("form", [
+        _c("div", { staticClass: "form-group profile-avatar profile-img" }, [
+          _c("img", {
+            staticClass: "img--circle",
+            attrs: {
+              src: this.user.directory_data.profile_image,
+              alt: this.user.display_name + "'s Profile Image"
             }
-          },
-          [_vm._v("Edit Image")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "display-name" } }, [
-          _vm._v("Display Name")
+          }),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "edit-img",
+              attrs: { href: "#" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.editImage($event)
+                }
+              }
+            },
+            [_vm._v("Edit Image")]
+          )
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.display_name,
-              expression: "display_name"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            id: "display-name",
-            name: "display-name",
-            type: "text",
-            placeholder: "Name to display on profile"
-          },
-          domProps: { value: _vm.display_name },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "display-name" } }, [
+            _vm._v("Display Name")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.display_name,
+                expression: "display_name"
               }
-              _vm.display_name = $event.target.value
+            ],
+            staticClass: "form-control",
+            attrs: {
+              id: "display-name",
+              name: "display-name",
+              type: "text",
+              placeholder: "Name to display on profile"
+            },
+            domProps: { value: _vm.display_name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.display_name = $event.target.value
+              }
             }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "nickname" } }, [
-          _vm._v("Nickname (Optional)")
+          })
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.nickname,
-              expression: "nickname"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            id: "nickname",
-            name: "nickname",
-            type: "text",
-            placeholder: "Nickname"
-          },
-          domProps: { value: _vm.nickname },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "nickname" } }, [
+            _vm._v("Nickname (Optional)")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.nickname,
+                expression: "nickname"
               }
-              _vm.nickname = $event.target.value
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "biography" } }, [_vm._v("Biography")]),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.biography,
-              expression: "biography"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            rows: "5",
-            id: "biography",
-            name: "biography",
-            placeholder: "Tell us about yourself!"
-          },
-          domProps: { value: _vm.biography },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.biography = $event.target.value
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("strong", [_vm._v("Profile Visibility")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-check" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.confidential_flag,
-              expression: "confidential_flag"
-            }
-          ],
-          staticClass: "form-check-input",
-          attrs: { type: "radio", id: "public" },
-          domProps: {
-            value: false,
-            checked: _vm._q(_vm.confidential_flag, false)
-          },
-          on: {
-            change: function($event) {
-              _vm.confidential_flag = false
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "form-check-label", attrs: { for: "public" } },
-          [_vm._v("Public")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-check" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.confidential_flag,
-              expression: "confidential_flag"
-            }
-          ],
-          staticClass: "form-check-input",
-          attrs: { type: "radio", id: "private" },
-          domProps: {
-            value: true,
-            checked: _vm._q(_vm.confidential_flag, true)
-          },
-          on: {
-            change: function($event) {
-              _vm.confidential_flag = true
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "form-check-label", attrs: { for: "private" } },
-          [_vm._v("Private")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group type--center" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary",
-            attrs: { role: "button" },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              id: "nickname",
+              name: "nickname",
+              type: "text",
+              placeholder: "Nickname"
+            },
+            domProps: { value: _vm.nickname },
             on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.editInfo($event)
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.nickname = $event.target.value
               }
             }
-          },
-          [_vm._v("Update Information")]
-        )
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "biography" } }, [_vm._v("Biography")]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.biography,
+                expression: "biography"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: {
+              rows: "5",
+              id: "biography",
+              name: "biography",
+              placeholder: "Tell us about yourself!"
+            },
+            domProps: { value: _vm.biography },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.biography = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("strong", [_vm._v("Profile Visibility")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-check" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.confidential_flag,
+                expression: "confidential_flag"
+              }
+            ],
+            staticClass: "form-check-input",
+            attrs: { type: "radio", id: "public" },
+            domProps: {
+              value: false,
+              checked: _vm._q(_vm.confidential_flag, false)
+            },
+            on: {
+              change: function($event) {
+                _vm.confidential_flag = false
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "form-check-label", attrs: { for: "public" } },
+            [_vm._v("Public")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-check" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.confidential_flag,
+                expression: "confidential_flag"
+              }
+            ],
+            staticClass: "form-check-input",
+            attrs: { type: "radio", id: "private" },
+            domProps: {
+              value: true,
+              checked: _vm._q(_vm.confidential_flag, true)
+            },
+            on: {
+              change: function($event) {
+                _vm.confidential_flag = true
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "form-check-label", attrs: { for: "private" } },
+            [_vm._v("Private")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group type--center" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { role: "button" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.editInfo($event)
+                }
+              }
+            },
+            [_vm._v("Update Information")]
+          )
+        ])
       ])
     ])
   ])
@@ -17245,36 +17244,28 @@ var render = function() {
           })
         : _vm._e(),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          [
-            this.uploadPicture == false
-              ? _c("info-form", {
-                  attrs: { user: this.user },
-                  on: {
-                    "edit-photo": _vm.editPhoto,
-                    "show-alert": _vm.showPopUpAlert
-                  }
-                })
-              : _c("image-upload", {
-                  attrs: {
-                    "profile-image": this.user.directory_data.profile_image,
-                    "display-name": this.user.display_name,
-                    "entity-type": this.user.affiliation,
-                    "email-uri": this.user.email_uri
-                  },
-                  on: {
-                    "image-upload": _vm.showPopUpAlert,
-                    "image-remove": function($event) {
-                      _vm.showAlert = false
-                    }
-                  }
-                })
-          ],
-          1
-        )
-      ])
+      this.uploadPicture == false
+        ? _c("info-form", {
+            attrs: { user: this.user },
+            on: {
+              "edit-photo": _vm.editPhoto,
+              "show-alert": _vm.showPopUpAlert
+            }
+          })
+        : _c("image-upload", {
+            attrs: {
+              "profile-image": this.user.directory_data.profile_image,
+              "display-name": this.user.display_name,
+              "entity-type": this.user.affiliation,
+              "email-uri": this.user.email_uri
+            },
+            on: {
+              "image-upload": _vm.showPopUpAlert,
+              "image-remove": function($event) {
+                _vm.showAlert = false
+              }
+            }
+          })
     ],
     1
   )

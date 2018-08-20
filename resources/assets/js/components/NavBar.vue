@@ -23,8 +23,6 @@
         </nav>
     </div> -->
 
-
-
         <nav class="container navbar navbar-metaphor navbar-expand-sm">
         <a class="navbar-brand" href="//www.csun.edu"> <span class="sr-only">CSUN Logo</span> </a> <span class="navbar-brand__sub-brand">Alpha</span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,9 +35,6 @@
             </div>
         </div>
         </nav>
-
-
-
 
 </template>
 

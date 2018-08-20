@@ -1,13 +1,21 @@
-.edit-img {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.75);
-    z-index: 1; // right: 0;
-    // left: 0;
-    // bottom: 0px;
-    text-align: center;
-    padding: 5px 0 15px;
-    font-weight: bold;
-    color: #4a4a4a;
-    font-size: 14px;
-    transition: padding, 0.2s, ease-in-out;
+// .edit-img {
+//     position: absolute;
+//     background-color: rgba(255, 255, 255, 0.75);
+//     z-index: 1; // right: 0;
+//     // left: 0;
+//     // bottom: 0px;
+//     text-align: center;
+//     padding: 5px 0 15px;
+//     font-weight: bold;
+//     color: #4a4a4a;
+//     font-size: 14px;
+//     transition: padding, 0.2s, ease-in-out;
+// }
+.form-check-label {
+    padding-left: 6px;
+    vertical-align: middle;
+}
+
+.form-check-input {
+    margin-top: 0.8rem;
 }

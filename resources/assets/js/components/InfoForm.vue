@@ -1,5 +1,6 @@
 <template>
-        <div class="col">
+<div class="row justify-content-center">
+        <div class="col-6">
         <form>
             <div class="form-group profile-avatar profile-img">
                 <img :src="this.user.directory_data.profile_image" class="img--circle" :alt="this.user.display_name + '\'s Profile Image'">
@@ -30,6 +31,7 @@
                 <button @click.prevent="editInfo" role="button" class="btn btn-primary">Update Information</button>
             </div>
         </form>
+    </div>
     </div>
 </template>
 

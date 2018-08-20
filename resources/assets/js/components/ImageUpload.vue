@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <div class="row">
         <croppa v-model="myCroppa"
                 accept="image/*"
                 remove-button-color="black"
@@ -17,6 +18,7 @@
         <div class="form__group type--center">
             <button @click.prevent="uploadPhoto" role="button" class="btn btn-primary type--center" v-if="this.uploadImageBtn">Save Image</button>
             <button role="button" class="btn btn-default type--center" v-else>Save Image</button>
+        </div>
         </div>
     </div>
 </template>
@@ -67,9 +69,9 @@
 </script>
 
 <style>
-    .croppa__image--radius {
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        border-radius: 50%;
-    }
+.croppa__image--radius {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
 </style>

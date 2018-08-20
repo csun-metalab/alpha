@@ -3,8 +3,6 @@
         <pop-up-alert v-if="showAlert"
                       v-bind:message="this.alertMessage"
                       v-on:close-alert="showAlert = !showAlert"/>
-        <div class="row">
-            <div>
                 <info-form v-if="this.uploadPicture == false"
                            v-bind:user="this.user"
                            v-on:edit-photo="editPhoto"
@@ -19,8 +17,6 @@
                     v-on:image-remove="showAlert = false"
                 />
             </div>
-        </div>
-    </div>
 </template>
 
 <script>
