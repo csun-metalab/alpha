@@ -10858,6 +10858,7 @@ body {
 }
 
 .footer {
+  padding-top: 50px;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -10869,10 +10870,6 @@ body {
 
 /* Footer Styles
 -------------------------------------------------- */
-.footer-seal {
-  margin-bottom: 10px;
-}
-
 .csun-seal {
   margin: 1rem;
 }

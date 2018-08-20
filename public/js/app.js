@@ -15724,11 +15724,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['app-name']
@@ -15745,30 +15740,28 @@ var render = function() {
   return _c("footer", { staticClass: "footer" }, [
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-5" }, [
-          _c("div", { staticClass: "row" }, [
-            _vm._m(0),
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-8 col-md-5 col-lg-4" }, [
+          _c("ul", { staticClass: "list-unstyled offset-2 offset-md-0" }, [
+            _c("li", [
+              _c("strong", [_vm._v(_vm._s(this.appName))]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v("© California State University, Northridge")
+            ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-sm-9" }, [
-              _c("ul", { staticClass: "list-unstyled" }, [
-                _c("li", [
-                  _c("strong", [_vm._v(_vm._s(this.appName))]),
-                  _vm._v(" "),
-                  _c("br"),
-                  _vm._v("© California State University, Northridge")
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _vm._v("18111 Nordhoff Street, Northridge, CA 91330")
-                ]),
-                _vm._v(" "),
-                _vm._m(1)
-              ])
-            ])
+            _c("li", [_vm._v("18111 Nordhoff Street, Northridge, CA 91330")]),
+            _vm._v(" "),
+            _vm._m(1)
           ])
         ]),
         _vm._v(" "),
-        _vm._m(2)
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _vm._m(4)
       ])
     ])
   ])
@@ -15778,15 +15771,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-3 footer-seal" }, [
-      _c("img", {
-        attrs: {
-          src:
-            "//www.csun.edu/sites/default/themes/csun/images/footer-seal.png",
-          alt: "Seal for California State University, Northridge"
-        }
-      })
-    ])
+    return _c(
+      "div",
+      {
+        staticClass:
+          "col-sm-2 col-md-2 col-lg-1 offset-1 offset-md-0 text-center footer-seal"
+      },
+      [
+        _c("img", {
+          attrs: {
+            src:
+              "//www.csun.edu/sites/default/themes/csun/images/footer-seal.png",
+            alt: "Seal for California State University, Northridge"
+          }
+        })
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -15805,88 +15805,90 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-7" }, [
-      _c("div", { staticClass: "row footer__links" }, [
-        _c("div", { staticClass: "col-sm-4" }, [
-          _c("ul", { staticClass: "list-unstyled" }, [
-            _c("li", [
-              _c(
-                "a",
-                {
-                  attrs: { href: "//www.csun.edu/emergency/", target: "_blank" }
-                },
-                [_vm._v("Emergency Information")]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c(
-                "a",
-                {
-                  attrs: {
-                    href: "//www.csun.edu/afvp/university-policies-procedures/",
-                    target: "_blank"
-                  }
-                },
-                [_vm._v("University Policies & Procedures")]
-              )
-            ])
-          ])
+    return _c("div", { staticClass: "col-12 col-sm-4 col-md-2 col-lg-2" }, [
+      _c("ul", { staticClass: "list-unstyled offset-2 offset-md-0" }, [
+        _c("li", [
+          _c(
+            "a",
+            { attrs: { href: "//www.csun.edu/emergency/", target: "_blank" } },
+            [_vm._v("Emergency Information")]
+          )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-sm-4" }, [
-          _c("ul", { staticClass: "list-unstyled" }, [
-            _c("li", [
-              _c(
-                "a",
-                {
-                  attrs: {
-                    href: "//www.csun.edu/sites/default/files/900-12.pdf",
-                    target: "_blank"
-                  }
-                },
-                [_vm._v("Terms and Conditions for Use")]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c(
-                "a",
-                {
-                  attrs: {
-                    href: "//www.csun.edu/sites/default/files/500-8025.pdf",
-                    target: "_blank"
-                  }
-                },
-                [_vm._v("Privacy Policy")]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c(
-                "a",
-                {
-                  attrs: {
-                    href: "//www.csun.edu/it/document-viewers",
-                    target: "_blank"
-                  }
-                },
-                [_vm._v("Document Reader")]
-              )
-            ])
-          ])
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href: "//www.csun.edu/afvp/university-policies-procedures/",
+                target: "_blank"
+              }
+            },
+            [_vm._v("University Policies & Procedures")]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 col-sm-4 col-md-2 col-lg-3" }, [
+      _c("ul", { staticClass: "list-unstyled offset-2 offset-md-0" }, [
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href: "//www.csun.edu/sites/default/files/900-12.pdf",
+                target: "_blank"
+              }
+            },
+            [_vm._v("Terms and Conditions for Use")]
+          )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-sm-4" }, [
-          _c("ul", { staticClass: "list-unstyled" }, [
-            _c("li", [
-              _c(
-                "a",
-                { attrs: { href: "//www.calstate.edu/", target: "_blank" } },
-                [_vm._v("California State University")]
-              )
-            ])
-          ])
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href: "//www.csun.edu/sites/default/files/500-8025.pdf",
+                target: "_blank"
+              }
+            },
+            [_vm._v("Privacy Policy")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href: "//www.csun.edu/it/document-viewers",
+                target: "_blank"
+              }
+            },
+            [_vm._v("Document Reader")]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 col-sm-4 col-md-1 col-lg-2" }, [
+      _c("ul", { staticClass: "list-unstyled offset-2 offset-md-0" }, [
+        _c("li", [
+          _c(
+            "a",
+            { attrs: { href: "//www.calstate.edu/", target: "_blank" } },
+            [_vm._v("California State University")]
+          )
         ])
       ])
     ])
