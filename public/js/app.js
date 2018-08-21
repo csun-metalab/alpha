@@ -15981,7 +15981,9 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("p", [_vm._v("Loggin in...")])
+          _c("p", [_vm._v("Loggin in...")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fas fa-spinner fa-spin fa-3x fa-blue" })
         ])
       : _vm._e()
   ])

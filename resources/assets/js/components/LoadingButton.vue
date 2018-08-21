@@ -10,7 +10,7 @@
             {{ title }}
         </button>
         <p>Loggin in...</p>
-            <!-- <i class="fas fa-spinner fa-spin fa-3x fa-blue"></i> -->
+        <i class="fas fa-spinner fa-spin fa-3x fa-blue"></i>
         </div>
     </div>
 
