@@ -15925,7 +15925,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['title'],
@@ -15981,9 +15980,9 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("p", [_vm._v("Loggin in...")]),
-          _vm._v(" "),
-          _c("i", { staticClass: "fas fa-spinner fa-spin fa-3x fa-blue" })
+          _c("i", {
+            staticClass: "fas fa-spinner fa-spin fa-lg login__spinner"
+          })
         ])
       : _vm._e()
   ])
@@ -16051,6 +16050,9 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
 //
 //
 //
@@ -16197,7 +16199,13 @@ var staticRenderFns = [
             id: "password",
             placeholder: "Password"
           }
-        })
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "invalid-feedback" }, [
+          _vm._v(
+            "\n                    Invalid password. Please try again.\n                "
+          )
+        ])
       ])
     ])
   }

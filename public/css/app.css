@@ -10838,6 +10838,13 @@ div.datepicker-calendar.default button.datepicker-close {
   margin: 3rem 0;
 }
 
+.login__spinner {
+  margin-top: 28px;
+  position: absolute;
+  vertical-align: middle;
+  margin-left: 12px;
+}
+
 .form-check-label {
   padding-left: 6px;
   vertical-align: middle;

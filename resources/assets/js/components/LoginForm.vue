@@ -14,7 +14,10 @@
                 <div class="col-md-4">
                     <label for="password" class="form-control--required">Password</label>
                     <input class="form-control" name="password" type="password" id="password" placeholder="Password">
+                    <div class="invalid-feedback">
+                        Invalid password. Please try again.
                     </div>
+                </div>
                 </div>
                 <div class="form-group">
                     <loading-button v-bind:title="'Log In'"></loading-button>

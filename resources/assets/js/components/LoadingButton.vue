@@ -9,8 +9,7 @@
             <i class="fas fa-sign-in-alt"></i>
             {{ title }}
         </button>
-        <p>Loggin in...</p>
-        <i class="fas fa-spinner fa-spin fa-3x fa-blue"></i>
+        <i class="fas fa-spinner fa-spin fa-lg login__spinner"></i>
         </div>
     </div>
 
