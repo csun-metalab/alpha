@@ -15921,17 +15921,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['title'],
     data: function data() {
         return {
-            ok: false
+            submitted: false
         };
     },
     methods: {
         buttonPressed: function buttonPressed() {
-            this.ok = true;
+            this.submitted = true;
             this.$emit('submitted');
         }
     }
@@ -15945,8 +15950,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-md-4" }, [
-    _vm.ok === false
+  return _c("div", [
+    _vm.submitted === false
       ? _c(
           "button",
           {
@@ -15961,9 +15966,22 @@ var render = function() {
         )
       : _vm._e(),
     _vm._v(" "),
-    _vm.ok
-      ? _c("div", { staticClass: "text-center" }, [
-          _c("i", { staticClass: "fas fa-spinner fa-spin fa-3x fa-blue" })
+    _vm.submitted
+      ? _c("div", { staticClass: "type-center" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { type: "submit" },
+              on: { click: _vm.buttonPressed }
+            },
+            [
+              _c("i", { staticClass: "fas fa-sign-in-alt" }),
+              _vm._v("\n        " + _vm._s(_vm.title) + "\n    ")
+            ]
+          ),
+          _vm._v(" "),
+          _c("p", [_vm._v("Loggin in...")])
         ])
       : _vm._e()
   ])
@@ -16171,7 +16189,12 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("input", {
           staticClass: "form-control",
-          attrs: { name: "password", type: "password", id: "password" }
+          attrs: {
+            name: "password",
+            type: "password",
+            id: "password",
+            placeholder: "Password"
+          }
         })
       ])
     ])
