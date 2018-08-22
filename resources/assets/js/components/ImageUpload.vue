@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container pt-5">
         <div class="row justify-content-center">
         <croppa v-model="myCroppa"
                 accept="image/*"
