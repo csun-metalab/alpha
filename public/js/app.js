@@ -16597,7 +16597,7 @@ var render = function() {
                 _c("img", {
                   staticClass: "rounded-circle img-fluid",
                   attrs: {
-                    src: "https://via.placeholder.com/200x200",
+                    src: this.user.directory_data.profile_image,
                     alt: this.user.display_name + "'s Profile Image"
                   }
                 }),

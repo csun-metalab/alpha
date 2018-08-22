@@ -4,8 +4,8 @@
         <form>
             <div class="form-group">
                 <a href="#" class="profile-avatar profile-img" @click.prevent="editImage">
-                <!-- <img :src="this.user.directory_data.profile_image" class="rounded-circle img-fluid" :alt="this.user.display_name + '\'s Profile Image'"> -->
-                    <img src="https://via.placeholder.com/200x200" class="rounded-circle img-fluid" :alt="this.user.display_name + '\'s Profile Image'">
+                <img :src="this.user.directory_data.profile_image" class="rounded-circle img-fluid" :alt="this.user.display_name + '\'s Profile Image'">
+                    <!-- <img src="https://via.placeholder.com/200x200" class="rounded-circle img-fluid" :alt="this.user.display_name + '\'s Profile Image'"> -->
                     <div class="edit-img">Edit Image</div>
                 </a>
             </div>
