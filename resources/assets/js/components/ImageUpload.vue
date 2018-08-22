@@ -5,6 +5,7 @@
                 accept="image/*"
                 remove-button-color="black"
                 :remove-button-size="35"
+                :initial-image="this.profileImage"
                 prevent-white-space
                 placeholder="Select an image."
                 :placeholder-font-size="18"
@@ -12,8 +13,7 @@
                 @image-remove="disableUploadImageButton"
                 @new-image="enableUploadImageButton"
                 v-on:image-remove="$emit('image-remove')"
-                class="form-group rounded-circle">
-            <img crossOrigin="anonymous" :src="this.profileImage" slot="initial" :alt="this.displayName + '\'s Profile Image'">
+                class="form__group croppa__image--radius">
         </croppa>
         </div>
         <div class="row justify-content-center">

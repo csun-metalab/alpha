@@ -1125,9 +1125,9 @@ module.exports = Component.exports
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(61)
+var __vue_script__ = __webpack_require__(56)
 /* template */
-var __vue_template__ = __webpack_require__(62)
+var __vue_template__ = __webpack_require__(57)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -1172,9 +1172,9 @@ module.exports = Component.exports
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(63)
+var __vue_script__ = __webpack_require__(58)
 /* template */
-var __vue_template__ = __webpack_require__(64)
+var __vue_template__ = __webpack_require__(59)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -1219,9 +1219,9 @@ module.exports = Component.exports
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(65)
+var __vue_script__ = __webpack_require__(60)
 /* template */
-var __vue_template__ = __webpack_require__(66)
+var __vue_template__ = __webpack_require__(61)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -1264,7 +1264,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(68);
+module.exports = __webpack_require__(63);
 
 
 /***/ }),
@@ -16204,7 +16204,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(55)
 /* template */
-var __vue_template__ = __webpack_require__(67)
+var __vue_template__ = __webpack_require__(62)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -16315,12 +16315,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */
+/* 56 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16398,7 +16393,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 62 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16410,48 +16405,35 @@ var render = function() {
       "div",
       { staticClass: "row justify-content-center" },
       [
-        _c(
-          "croppa",
-          {
-            staticClass: "form-group rounded-circle",
-            attrs: {
-              accept: "image/*",
-              "remove-button-color": "black",
-              "remove-button-size": 35,
-              "prevent-white-space": "",
-              placeholder: "Select an image.",
-              "placeholder-font-size": 18
-            },
-            on: {
-              init: _vm.imageInit,
-              "image-remove": [
-                _vm.disableUploadImageButton,
-                function($event) {
-                  _vm.$emit("image-remove")
-                }
-              ],
-              "new-image": _vm.enableUploadImageButton
-            },
-            model: {
-              value: _vm.myCroppa,
-              callback: function($$v) {
-                _vm.myCroppa = $$v
-              },
-              expression: "myCroppa"
-            }
+        _c("croppa", {
+          staticClass: "form__group croppa__image--radius",
+          attrs: {
+            accept: "image/*",
+            "remove-button-color": "black",
+            "remove-button-size": 35,
+            "initial-image": this.profileImage,
+            "prevent-white-space": "",
+            placeholder: "Select an image.",
+            "placeholder-font-size": 18
           },
-          [
-            _c("img", {
-              attrs: {
-                slot: "initial",
-                crossOrigin: "anonymous",
-                src: this.profileImage,
-                alt: this.displayName + "'s Profile Image"
-              },
-              slot: "initial"
-            })
-          ]
-        )
+          on: {
+            init: _vm.imageInit,
+            "image-remove": [
+              _vm.disableUploadImageButton,
+              function($event) {
+                _vm.$emit("image-remove")
+              }
+            ],
+            "new-image": _vm.enableUploadImageButton
+          },
+          model: {
+            value: _vm.myCroppa,
+            callback: function($$v) {
+              _vm.myCroppa = $$v
+            },
+            expression: "myCroppa"
+          }
+        })
       ],
       1
     ),
@@ -16494,7 +16476,7 @@ if (false) {
 }
 
 /***/ }),
-/* 63 */
+/* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16585,7 +16567,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 64 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16822,7 +16804,7 @@ if (false) {
 }
 
 /***/ }),
-/* 65 */
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16841,7 +16823,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 66 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16877,7 +16859,7 @@ if (false) {
 }
 
 /***/ }),
-/* 67 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16935,7 +16917,7 @@ if (false) {
 }
 
 /***/ }),
-/* 68 */
+/* 63 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
