@@ -13,11 +13,11 @@
                 @image-remove="disableUploadImageButton"
                 @new-image="enableUploadImageButton"
                 v-on:image-remove="$emit('image-remove')"
-                class="form__group croppa__image--radius">
+                class="form-group rounded-circles">
         </croppa>
         </div>
         <div class="row justify-content-center">
-            <button @click.prevent="uploadPhoto" role="button" class="btn btn-primary type--center" v-if="this.uploadImageBtn">Save Image</button>
+            <button @click.prevent="uploadPhoto" role="button" class="btn btn-primary type-center" v-if="this.uploadImageBtn">Save Image</button>
             <button role="button" class="btn btn-default text-center" v-else>Save Image</button>
         </div>
         </div>
