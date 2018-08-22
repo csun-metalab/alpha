@@ -2,9 +2,15 @@
 <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
         <form>
-            <div class="form-group profile-avatar profile-img">
-                <img :src="this.user.directory_data.profile_image" class="img--circle" :alt="this.user.display_name + '\'s Profile Image'">
-                <a href="#" class="edit-img" @click.prevent="editImage">Edit Image</a>
+            <div class="form-group">
+                <a href="#" class="profile-avatar profile-img" @click.prevent="editImage">
+                <img :src="this.user.directory_data.profile_image" class="rounded-circle img-fluid" :alt="this.user.display_name + '\'s Profile Image'">
+                    <!-- <img src="https://via.placeholder.com/200x200" class="rounded-circle img-fluid" :alt="this.user.display_name + '\'s Profile Image'"> -->
+                    <div class="edit-img">Edit Image</div>
+                </a>
+            </div>
+            <div>
+                <h2 class="text-center display-name">{{ this.user.display_name }}</h2>
             </div>
             <div class="form-group">
                 <label for="display-name">Display Name</label>
