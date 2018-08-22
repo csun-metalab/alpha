@@ -16406,7 +16406,7 @@ var render = function() {
       { staticClass: "row justify-content-center" },
       [
         _c("croppa", {
-          staticClass: "form__group croppa__image--radius",
+          staticClass: "form-group rounded-circle",
           attrs: {
             accept: "image/*",
             "remove-button-color": "black",
@@ -16443,7 +16443,7 @@ var render = function() {
         ? _c(
             "button",
             {
-              staticClass: "btn btn-primary type--center",
+              staticClass: "btn btn-primary type-center",
               attrs: { role: "button" },
               on: {
                 click: function($event) {
