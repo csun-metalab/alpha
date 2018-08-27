@@ -1,3 +1,9 @@
+// Font Awesome (core classes)
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+// Font Awesome (font face definitions and file paths)
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/brands';
 @import '~metaphor-theme/src/scss/metaphor-v2.scss';
 @import '~vue-croppa/dist/vue-croppa.css';
 // Variables
