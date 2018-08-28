@@ -2241,7 +2241,7 @@ module.exports = function spread(callback) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Vue.js v2.5.17
+ * Vue.js v2.5.16
  * (c) 2014-2018 Evan You
  * Released under the MIT License.
  */
@@ -7330,7 +7330,7 @@ Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
 
-Vue.version = '2.5.17';
+Vue.version = '2.5.16';
 
 /*  */
 
@@ -13469,7 +13469,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/*
- * vue-croppa v1.3.7
+ * vue-croppa v1.3.6
  * https://github.com/zhanziyang/vue-croppa
  * 
  * Copyright (c) 2018 zhanziyang
@@ -13904,15 +13904,15 @@ var events = {
   FILE_CHOOSE_EVENT: 'file-choose',
   FILE_SIZE_EXCEED_EVENT: 'file-size-exceed',
   FILE_TYPE_MISMATCH_EVENT: 'file-type-mismatch',
-  NEW_IMAGE_EVENT: 'new-image',
-  NEW_IMAGE_DRAWN_EVENT: 'new-image-drawn',
+  NEW_IMAGE: 'new-image',
+  NEW_IMAGE_DRAWN: 'new-image-drawn',
   IMAGE_REMOVE_EVENT: 'image-remove',
   MOVE_EVENT: 'move',
   ZOOM_EVENT: 'zoom',
-  DRAW_EVENT: 'draw',
+  DRAW: 'draw',
   INITIAL_IMAGE_LOADED_EVENT: 'initial-image-loaded',
-  LOADING_START_EVENT: 'loading-start',
-  LOADING_END_EVENT: 'loading-end'
+  LOADING_START: 'loading-start',
+  LOADING_END: 'loading-end'
 };
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
@@ -14177,7 +14177,7 @@ var component = { render: function render() {
       this.scaleRatio = val / this.naturalWidth;
       if (this.hasImage()) {
         if (Math.abs(val - oldVal) > val * (1 / 100000)) {
-          this.emitEvent(events.ZOOM_EVENT);
+          this.$emit(events.ZOOM_EVENT);
           this._draw();
         }
       }
@@ -14202,9 +14202,9 @@ var component = { render: function render() {
     loading: function loading(val) {
       if (this.passive) return;
       if (val) {
-        this.emitEvent(events.LOADING_START_EVENT);
+        this.$emit(events.LOADING_START);
       } else {
-        this.emitEvent(events.LOADING_END_EVENT);
+        this.$emit(events.LOADING_END);
       }
     },
     autoSizing: function autoSizing(val) {
@@ -14218,10 +14218,6 @@ var component = { render: function render() {
   },
 
   methods: {
-    emitEvent: function emitEvent() {
-      // console.log(args[0])
-      this.$emit.apply(this, arguments);
-    },
     getCanvas: function getCanvas() {
       return this.canvas;
     },
@@ -14241,7 +14237,7 @@ var component = { render: function render() {
         this._preventMovingToWhiteSpace();
       }
       if (this.imgData.startX !== oldX || this.imgData.startY !== oldY) {
-        this.emitEvent(events.MOVE_EVENT);
+        this.$emit(events.MOVE_EVENT);
         this._draw();
       }
     },
@@ -14377,7 +14373,6 @@ var component = { render: function render() {
       this.$refs.fileInput.click();
     },
     remove: function remove() {
-      if (!this.imageSet) return;
       this._setPlaceholders();
 
       var hadImage = this.img != null;
@@ -14394,6 +14389,7 @@ var component = { render: function render() {
       this.scaleRatio = null;
       this.userMetadata = null;
       this.imageSet = false;
+      this.loading = false;
       this.chosenFile = null;
       if (this.video) {
         this.video.pause();
@@ -14401,7 +14397,7 @@ var component = { render: function render() {
       }
 
       if (hadImage) {
-        this.emitEvent(events.IMAGE_REMOVE_EVENT);
+        this.$emit(events.IMAGE_REMOVE_EVENT);
       }
     },
     addClipPlugin: function addClipPlugin(plugin) {
@@ -14415,7 +14411,7 @@ var component = { render: function render() {
       }
     },
     emitNativeEvent: function emitNativeEvent(evt) {
-      this.emitEvent(evt.type, evt);
+      this.$emit(evt.type, evt);
     },
     _setContainerSize: function _setContainerSize() {
       if (this.useAutoSizing) {
@@ -14448,7 +14444,7 @@ var component = { render: function render() {
       this.chosenFile = null;
       this._setInitial();
       if (!this.passive) {
-        this.emitEvent(events.INIT_EVENT, this);
+        this.$emit(events.INIT_EVENT, this);
       }
     },
     _setSize: function _setSize() {
@@ -14552,12 +14548,12 @@ var component = { render: function render() {
       }
       this.currentIsInitial = true;
       if (u.imageLoaded(img)) {
-        // this.emitEvent(events.INITIAL_IMAGE_LOADED_EVENT)
+        // this.$emit(events.INITIAL_IMAGE_LOADED_EVENT)
         this._onload(img, +img.dataset['exifOrientation'], true);
       } else {
         this.loading = true;
         img.onload = function () {
-          // this.emitEvent(events.INITIAL_IMAGE_LOADED_EVENT)
+          // this.$emit(events.INITIAL_IMAGE_LOADED_EVENT)
           _this4._onload(img, +img.dataset['exifOrientation'], true);
         };
 
@@ -14570,9 +14566,6 @@ var component = { render: function render() {
       var orientation = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
       var initial = arguments[2];
 
-      if (this.imageSet) {
-        this.remove();
-      }
       this.originalImage = img;
       this.img = img;
 
@@ -14583,7 +14576,7 @@ var component = { render: function render() {
       this._setOrientation(orientation);
 
       if (initial) {
-        this.emitEvent(events.INITIAL_IMAGE_LOADED_EVENT);
+        this.$emit(events.INITIAL_IMAGE_LOADED_EVENT);
       }
     },
     _onVideoLoad: function _onVideoLoad(video, initial) {
@@ -14654,16 +14647,16 @@ var component = { render: function render() {
 
       this.currentIsInitial = false;
       this.loading = true;
-      this.emitEvent(events.FILE_CHOOSE_EVENT, file);
+      this.$emit(events.FILE_CHOOSE_EVENT, file);
       this.chosenFile = file;
       if (!this._fileSizeIsValid(file)) {
         this.loading = false;
-        this.emitEvent(events.FILE_SIZE_EXCEED_EVENT, file);
+        this.$emit(events.FILE_SIZE_EXCEED_EVENT, file);
         return false;
       }
       if (!this._fileTypeIsValid(file)) {
         this.loading = false;
-        this.emitEvent(events.FILE_TYPE_MISMATCH_EVENT, file);
+        this.$emit(events.FILE_TYPE_MISMATCH_EVENT, file);
         var type = file.type || file.name.toLowerCase().split('.').pop();
         return false;
       }
@@ -14697,7 +14690,7 @@ var component = { render: function render() {
             fileData = null;
             img.onload = function () {
               _this6._onload(img, orientation);
-              _this6.emitEvent(events.NEW_IMAGE_EVENT);
+              _this6.$emit(events.NEW_IMAGE);
             };
           }
         };
@@ -14970,8 +14963,8 @@ var component = { render: function render() {
       this.emitNativeEvent(evt);
       if (this.passive) return;
       if (!this.fileDraggedOver || !u.eventHasFile(evt)) return;
-      if (this.hasImage() && !this.replaceDrop) {
-        return;
+      if (this.hasImage() && this.replaceDrop) {
+        this.remove();
       }
       this.fileDraggedOver = false;
 
@@ -15097,10 +15090,10 @@ var component = { render: function render() {
         );
       }
 
-      this.emitEvent(events.DRAW_EVENT, ctx);
+      this.$emit(events.DRAW, ctx);
       if (!this.imageSet) {
         this.imageSet = true;
-        this.emitEvent(events.NEW_IMAGE_DRAWN_EVENT);
+        this.$emit(events.NEW_IMAGE_DRAWN);
       }
       this.rotating = false;
     },
@@ -16323,6 +16316,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -16342,8 +16340,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             nickname: '',
             confidential_flag: false,
             uploadPicture: false,
-            showAlert: false,
-            alertMessage: ''
+            successAlert: false,
+            dangerAlert: false,
+            alertDetails: null
         };
     },
     created: function created() {
@@ -16356,8 +16355,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.uploadPicture = true;
         },
         showPopUpAlert: function showPopUpAlert(type) {
-            this.alertMessage = type;
-            this.showAlert = true;
+            if (type.success) {
+                this.successAlert = type.success;
+            } else {
+                // type.success is false so let's
+                // show the alert by taking the
+                // compliment of type.success
+                this.dangerAlert = !type.success;
+            }
+            this.alertDetails = type;
         }
     }
 });
@@ -16795,15 +16801,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         uploadPhoto: function uploadPhoto() {
             var _this = this;
 
-            var base64Img = this.myCroppa.generateDataUrl('image/jpeg', 0.8);
+            var base64Img = this.myCroppa.generateDataUrl('image/jpeg', 1);
             window.axios.post(this.emailUri + '/image', {
                 profile_image: base64Img,
                 entity_type: this.entityType,
                 image_type: this.imageType
             }).then(function (response) {
-                _this.$emit('image-upload', response.data.message);
+                if (response.data.success === 'true') {
+                    _this.$emit('image-upload', { title: 'Success!', message: response.data.message, success: true });
+                } else {
+                    _this.$emit('image-upload', { title: 'Oh no!', message: response.data.message, success: false });
+                }
             }).catch(function (error) {
-                _this.$emit('image-upload', 'Oh no! An error occurred please try again.');
+                _this.$emit('image-upload', { title: 'Oh no!', message: 'An error occurred, please try again.', success: false });
             });
         },
         imageInit: function imageInit() {
@@ -16958,7 +16968,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'InfoForm',
@@ -16990,9 +16999,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 email: this.user.email,
                 nickname: this.nickname
             }).then(function (response) {
-                _this.$emit('show-alert', response.data.message);
+                if (response.data.success === 'true') {
+                    _this.$emit('show-alert', { title: 'Success!', message: response.data.message, success: true });
+                } else {
+                    _this.$emit('show-alert', { title: 'Oh No!', message: response.data.message, success: false });
+                }
             }).catch(function (error) {
-                _this.$emit('show-alert', 'Oh no! An error occurred please try again.');
+                _this.$emit('show-alert', { title: 'Oh No!', message: 'An error occurred please try again.', success: false });
             });
         },
         editImage: function editImage() {
@@ -17009,190 +17022,188 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-md-4 col-md-push-4" }, [
-      _c("div", { staticClass: "form__group profile-avatar profile-img" }, [
-        _c("img", {
-          staticClass: "img--circle",
-          attrs: {
-            src: this.user.directory_data.profile_image,
-            alt: this.user.display_name + "'s Profile Image"
+  return _c("div", [
+    _c("div", { staticClass: "form__group profile-avatar profile-img" }, [
+      _c("img", {
+        staticClass: "img--circle",
+        attrs: {
+          src: this.user.avatar_image,
+          alt: this.user.display_name + "'s Profile Image"
+        }
+      }),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "type--center",
+          attrs: { href: "#" },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.editImage($event)
+            }
           }
-        }),
-        _vm._v(" "),
-        _c(
-          "a",
+        },
+        [_vm._v("Edit Image")]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form__group" }, [
+      _c("label", { attrs: { for: "display-name" } }, [_vm._v("Display Name")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
           {
-            staticClass: "edit-img",
-            attrs: { href: "#" },
+            name: "model",
+            rawName: "v-model",
+            value: _vm.display_name,
+            expression: "display_name"
+          }
+        ],
+        attrs: { id: "display-name", name: "display-name", type: "text" },
+        domProps: { value: _vm.display_name },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.display_name = $event.target.value
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form__group" }, [
+      _c("label", { attrs: { for: "nickname" } }, [_vm._v("Nickname")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.nickname,
+            expression: "nickname"
+          }
+        ],
+        attrs: { id: "nickname", name: "nickname", type: "text" },
+        domProps: { value: _vm.nickname },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.nickname = $event.target.value
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form__group" }, [
+      _c("label", { attrs: { for: "biography" } }, [_vm._v("Biography")]),
+      _vm._v(" "),
+      _c("textarea", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.biography,
+            expression: "biography"
+          }
+        ],
+        attrs: { id: "biography", name: "biography" },
+        domProps: { value: _vm.biography },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.biography = $event.target.value
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form__group" }, [
+      _c("strong", [_vm._v("Profile Visibility")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-4" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.confidential_flag,
+                expression: "confidential_flag"
+              }
+            ],
+            attrs: { type: "radio", id: "public" },
+            domProps: {
+              value: false,
+              checked: _vm._q(_vm.confidential_flag, false)
+            },
             on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.editImage($event)
+              change: function($event) {
+                _vm.confidential_flag = false
               }
             }
-          },
-          [_vm._v("Edit Image")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form__group" }, [
-        _c("label", { attrs: { for: "display-name" } }, [
-          _vm._v("Display Name")
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "radio-inline", attrs: { for: "public" } },
+            [_vm._v("Public")]
+          )
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.display_name,
-              expression: "display_name"
-            }
-          ],
-          attrs: { id: "display-name", name: "display-name", type: "text" },
-          domProps: { value: _vm.display_name },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+        _c("div", { staticClass: "col-md-4" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.confidential_flag,
+                expression: "confidential_flag"
               }
-              _vm.display_name = $event.target.value
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form__group" }, [
-        _c("label", { attrs: { for: "nickname" } }, [_vm._v("Nickname")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.nickname,
-              expression: "nickname"
-            }
-          ],
-          attrs: { id: "nickname", name: "nickname", type: "text" },
-          domProps: { value: _vm.nickname },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.nickname = $event.target.value
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form__group" }, [
-        _c("label", { attrs: { for: "biography" } }, [_vm._v("Biography")]),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.biography,
-              expression: "biography"
-            }
-          ],
-          attrs: { id: "biography", name: "biography" },
-          domProps: { value: _vm.biography },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.biography = $event.target.value
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form__group" }, [
-        _c("strong", [_vm._v("Profile Visibility")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-4" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.confidential_flag,
-                  expression: "confidential_flag"
-                }
-              ],
-              attrs: { type: "radio", id: "public" },
-              domProps: {
-                value: false,
-                checked: _vm._q(_vm.confidential_flag, false)
-              },
-              on: {
-                change: function($event) {
-                  _vm.confidential_flag = false
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "radio-inline", attrs: { for: "public" } },
-              [_vm._v("Public")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-4" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.confidential_flag,
-                  expression: "confidential_flag"
-                }
-              ],
-              attrs: { type: "radio", id: "private" },
-              domProps: {
-                value: true,
-                checked: _vm._q(_vm.confidential_flag, true)
-              },
-              on: {
-                change: function($event) {
-                  _vm.confidential_flag = true
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "radio-inline", attrs: { for: "private" } },
-              [_vm._v("Private")]
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form__group type--center" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary",
-            attrs: { role: "button" },
+            ],
+            attrs: { type: "radio", id: "private" },
+            domProps: {
+              value: true,
+              checked: _vm._q(_vm.confidential_flag, true)
+            },
             on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.editInfo($event)
+              change: function($event) {
+                _vm.confidential_flag = true
               }
             }
-          },
-          [_vm._v("Update Information")]
-        )
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "radio-inline", attrs: { for: "private" } },
+            [_vm._v("Private")]
+          )
+        ])
       ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form__group type--center" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { role: "button" },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.editInfo($event)
+            }
+          }
+        },
+        [_vm._v("Update Information")]
+      )
     ])
   ])
 }
@@ -17222,7 +17233,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'PopUpAlert',
-    props: ['message']
+    props: ['details']
 });
 
 /***/ }),
@@ -17233,9 +17244,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "alert alert--success type--white" }, [
-    _c("strong", [_vm._v("Success!")]),
-    _vm._v(" " + _vm._s(this.message) + "\n    "),
+  return _c("div", { staticClass: "type--white" }, [
+    _c("strong", [_vm._v(_vm._s(this.details.title))]),
+    _vm._v(" " + _vm._s(this.details.message) + "\n    "),
     _c(
       "a",
       {
@@ -17272,12 +17283,25 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm.showAlert
+      _vm.successAlert
         ? _c("pop-up-alert", {
-            attrs: { message: this.alertMessage },
+            staticClass: "alert alert--success",
+            attrs: { details: this.alertDetails },
             on: {
               "close-alert": function($event) {
-                _vm.showAlert = !_vm.showAlert
+                _vm.successAlert = !_vm.successAlert
+              }
+            }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.dangerAlert
+        ? _c("pop-up-alert", {
+            staticClass: "alert alert--danger",
+            attrs: { details: this.alertDetails },
+            on: {
+              "close-alert": function($event) {
+                _vm.dangerAlert = !_vm.dangerAlert
               }
             }
           })
@@ -17298,7 +17322,7 @@ var render = function() {
                 })
               : _c("image-upload", {
                   attrs: {
-                    "profile-image": this.user.directory_data.profile_image,
+                    "profile-image": this.user.avatar_image,
                     "display-name": this.user.display_name,
                     "entity-type": this.user.affiliation,
                     "email-uri": this.user.email_uri

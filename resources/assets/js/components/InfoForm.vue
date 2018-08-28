@@ -1,38 +1,37 @@
 <template>
-    <div class="row">
-        <div class="col-md-4 col-md-push-4">
-            <div class="form__group profile-avatar profile-img">
-                <img :src="this.user.directory_data.profile_image" class="img--circle" :alt="this.user.display_name + '\'s Profile Image'">
-                <a href="#" class="edit-img" @click.prevent="editImage">Edit Image</a>
-            </div>
-            <div class="form__group">
-                <label for="display-name">Display Name</label>
-                <input id="display-name" name="display-name" type="text" v-model="display_name">
-            </div>
-            <div class="form__group">
-                <label for="nickname">Nickname</label>
-                <input id="nickname" name="nickname" type="text" v-model="nickname">
-            </div>
-            <div class="form__group">
-                <label for="biography">Biography</label>
-                <textarea id="biography" name="biography" v-model="biography"></textarea>
-            </div>
-            <div class="form__group">
-                <strong>Profile Visibility</strong>
-                <div class="row">
-                    <div class="col-md-4">
-                        <input type="radio" id="public" :value="false" v-model="confidential_flag">
-                        <label class="radio-inline" for="public">Public</label>
-                    </div>
-                    <div class="col-md-4">
-                        <input type="radio" id="private" :value="true" v-model="confidential_flag">
-                        <label class="radio-inline" for="private">Private</label>
-                    </div>
+    <div>
+        <div class="form__group profile-avatar profile-img">
+            <img :src="this.user.avatar_image" class="img--circle" :alt="this.user.display_name + '\'s Profile Image'">
+            <br>
+            <a href="#" class="type--center" @click.prevent="editImage">Edit Image</a>
+        </div>
+        <div class="form__group">
+            <label for="display-name">Display Name</label>
+            <input id="display-name" name="display-name" type="text" v-model="display_name">
+        </div>
+        <div class="form__group">
+            <label for="nickname">Nickname</label>
+            <input id="nickname" name="nickname" type="text" v-model="nickname">
+        </div>
+        <div class="form__group">
+            <label for="biography">Biography</label>
+            <textarea id="biography" name="biography" v-model="biography"></textarea>
+        </div>
+        <div class="form__group">
+            <strong>Profile Visibility</strong>
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="radio" id="public" :value="false" v-model="confidential_flag">
+                    <label class="radio-inline" for="public">Public</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="radio" id="private" :value="true" v-model="confidential_flag">
+                    <label class="radio-inline" for="private">Private</label>
                 </div>
             </div>
-            <div class="form__group type--center">
-                <button @click.prevent="editInfo" role="button" class="btn btn-primary">Update Information</button>
-            </div>
+        </div>
+        <div class="form__group type--center">
+            <button @click.prevent="editInfo" role="button" class="btn btn-primary">Update Information</button>
         </div>
     </div>
 </template>
@@ -65,9 +64,13 @@
                     email: this.user.email,
                     nickname: this.nickname
                 }).then(response => {
-                    this.$emit('show-alert', response.data.message);
+                    if (response.data.success === 'true') {
+                        this.$emit('show-alert', {title: 'Success!', message: response.data.message, success: true});
+                    } else {
+                        this.$emit('show-alert', {title: 'Oh No!', message: response.data.message, success: false})
+                    }
                 }).catch(error => {
-                    this.$emit('show-alert', 'Oh no! An error occurred please try again.')
+                    this.$emit('show-alert', {title: 'Oh No!', message: 'An error occurred please try again.', success: false})
                 })
             },
             editImage () {

@@ -1,8 +1,13 @@
 <template>
     <div>
-        <pop-up-alert v-if="showAlert"
-                      v-bind:message="this.alertMessage"
-                      v-on:close-alert="showAlert = !showAlert"/>
+        <pop-up-alert class="alert alert--success"
+                      v-if="successAlert"
+                      v-bind:details="this.alertDetails"
+                      v-on:close-alert="successAlert = !successAlert"/>
+        <pop-up-alert class="alert alert--danger"
+                      v-if="dangerAlert"
+                      v-bind:details="this.alertDetails"
+                      v-on:close-alert="dangerAlert = !dangerAlert"/>
         <div class="row">
             <div class="col-md-4 col-md-push-4">
                 <info-form v-if="this.uploadPicture == false"
@@ -11,7 +16,7 @@
                            v-on:show-alert="showPopUpAlert"
                 />
                 <image-upload v-else
-                    v-bind:profile-image="this.user.directory_data.profile_image"
+                    v-bind:profile-image="this.user.avatar_image"
                     v-bind:display-name="this.user.display_name"
                     v-bind:entity-type="this.user.affiliation"
                     v-bind:email-uri="this.user.email_uri"
@@ -42,8 +47,9 @@
                 nickname:'',
                 confidential_flag: false,
                 uploadPicture: false,
-                showAlert: false,
-                alertMessage: ''
+                successAlert: false,
+                dangerAlert: false,
+                alertDetails: null
             }
         },
         created (){
@@ -55,8 +61,15 @@
                 this.uploadPicture = true
             },
             showPopUpAlert (type) {
-                this.alertMessage = type
-                this.showAlert = true
+                if (type.success) {
+                    this.successAlert = type.success
+                } else {
+                    // type.success is false so let's
+                    // show the alert by taking the
+                    // compliment of type.success
+                    this.dangerAlert = !type.success
+                }
+                this.alertDetails = type
             }
         }
     }

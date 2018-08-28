@@ -37,15 +37,19 @@
         },
         methods: {
             uploadPhoto() {
-                let base64Img = this.myCroppa.generateDataUrl('image/jpeg', 0.8)
+                let base64Img = this.myCroppa.generateDataUrl('image/jpeg', 1)
                 window.axios.post(this.emailUri + '/image', {
                     profile_image: base64Img,
                     entity_type: this.entityType,
                     image_type: this.imageType
                 }).then(response => {
-                    this.$emit('image-upload', response.data.message)
+                    if (response.data.success === 'true') {
+                        this.$emit('image-upload', {title: 'Success!', message: response.data.message, success: true})
+                    } else {
+                        this.$emit('image-upload', {title: 'Oh no!', message: response.data.message, success: false})
+                    }
                 }).catch(error =>  {
-                    this.$emit('image-upload', 'Oh no! An error occurred please try again.')
+                    this.$emit('image-upload', {title: 'Oh no!', message: 'An error occurred, please try again.', success: false})
                 })
             },
             imageInit() {
