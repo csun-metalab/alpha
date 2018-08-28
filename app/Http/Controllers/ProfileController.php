@@ -56,7 +56,7 @@ class ProfileController extends Controller
                 'profile_image' => $request->profile_image,
                 'image_type' => $request->image_type,
                 'entity_type' => $request->entity_type,
-                'secret_key' => config('webservices.secret_key')
+                'secret_key' => config('webservices.media_secret_key')
             ]);
             $response = $guzzle->post(config('webservices.media_url').$emailUri.'/photo');
             $guzzleResponse = $guzzle->resolveResponseBody($response, 'json');
@@ -105,7 +105,7 @@ class ProfileController extends Controller
             'display_name' => $request->display_name,
             'nick_name' => $request->nickname,
         ]);
-        $guzzle->setHeader('X-API-Key' , config('webservices.secret_key'), false);
+        $guzzle->setHeader('X-API-Key' , config('webservices.directory_secret_key'), false);
         $response = $guzzle->put(config('webservices.directory_url').'members/update-info');
         $guzzleResponse = $guzzle->resolveResponseBody($response, 'json');
         if ($guzzleResponse->status === '200') {
