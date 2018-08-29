@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('content')
-    <h1 class="h1__login">Student Log In</h1>
+<div class="row justify-content-center">
+    <h1 class="my-5 ">Student Log In</h1>
+</div>
     <login-form></login-form>
 @endsection

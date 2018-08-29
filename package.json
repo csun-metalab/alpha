@@ -13,7 +13,7 @@
         "axios": "^0.18",
         "cross-env": "^5.1",
         "laravel-mix": "^2.1.14",
-        "metaphor-theme": "^2.0.6",
+        "metaphor-theme": "^2.0.7",
         "vue": "^2.5.7"
     },
     "dependencies": {

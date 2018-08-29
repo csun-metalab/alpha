@@ -1,29 +1,32 @@
 // // /* Sticky footer
 // // -------------------------------------------------- */
-// html {
-//     position: relative;
-//     min-height: 100%;
-// }
-// body {
-//     margin-bottom: 96px;
-//     /* Margin bottom by footer height */
-// }
-// .footer {
-//     padding-top: 50px;
-//     position: absolute;
-//     bottom: 0;
-//     width: 100%;
-//     line-height: 2rem;
-//     vertical-align: text-bottom;
-//     font-size: 1.3rem;
-//     height: 96px;
-// }
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 250px;
+    /* Margin bottom by footer height */
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 2rem;
+    vertical-align: text-bottom;
+    font-size: 1.3rem;
+    height: 96px;
+    padding-top: 250px;
+}
+
 /* Footer Styles
 -------------------------------------------------- */
+.footer-seal {
+    margin-bottom: 10px;
+}
 
-// .footer-seal {
-//     margin-bottom: 10px;
-// }
 .csun-seal {
     margin: 1rem;
 }

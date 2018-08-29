@@ -3,17 +3,17 @@
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 pt-5">
         <form>
             <div class="form-group">
-                <a href="#" class="profile-avatar profile-img" @click.prevent="editImage">
+                <a href="#" class="profile-img" @click.prevent="editImage">
                 <img :src="this.user.directory_data.profile_image" class="rounded-circle img-fluid" :alt="this.user.display_name + '\'s Profile Image'">
                     <!-- <img src="https://via.placeholder.com/200x200" class="rounded-circle img-fluid" :alt="this.user.display_name + '\'s Profile Image'"> -->
                     <div class="edit-img">Edit Image</div>
                 </a>
             </div>
             <div>
-                <h2 class="text-center display-name">{{ this.user.display_name }}</h2>
+                <h2 class="text-center my-5">{{ this.user.display_name }}</h2>
             </div>
             <div class="form-group">
-                <label for="display-name">Display Name</label>
+                <label for="profile-name">Display Name</label>
                 <input class="form-control" id="display-name" name="display-name" type="text" placeholder="Name to display on profile" v-model="display_name">
             </div>
             <div class="form-group">

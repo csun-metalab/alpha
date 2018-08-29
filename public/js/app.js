@@ -6660,174 +6660,176 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("footer", { staticClass: "footer-metaphor" }, [
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12 col-md-5" }, [
-          _c("div", { staticClass: "row mb-3 mb-md-0" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-12 col-md-9" }, [
-              _c("h6", [_vm._v(_vm._s(this.appName))]),
-              _vm._v(" "),
-              _vm._m(1)
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _vm._m(2)
-      ])
-    ]),
-    _vm._v(" "),
-    _vm._m(3)
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-3" }, [
-      _c("img", {
-        staticClass:
-          "d-block mx-auto mx-md-0 img-fluid footer-metaphor__emblem mb-3 mb-md-0",
-        attrs: {
-          src:
-            "//s3-us-west-2.amazonaws.com/metalab-fonts/images/csun-emblem.svg"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _vm._v("\n              © California State University, Northridge "),
-      _c("br"),
-      _vm._v("\n              18111 Nordhoff Street, Northridge, CA 91330 "),
-      _c("br"),
-      _vm._v("\n              Phone: "),
-      _c("a", { attrs: { href: "#" } }, [_vm._v("(818) 677-1200")]),
-      _vm._v(" / "),
-      _c("a", { attrs: { href: "//www.csun.edu/contact", target: "csun" } }, [
-        _vm._v("Contact Us")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-7" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12 col-md-4" }, [
-          _c("div", { staticClass: "mb-2 mb-lg-1" }, [
-            _c(
-              "a",
-              { attrs: { href: "//www.csun.edu/emergency/", target: "csun" } },
-              [_vm._v("Emergency Information")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-2 mb-lg-1" }, [
-            _c(
-              "a",
-              {
-                attrs: {
-                  href: "//www.csun.edu/afvp/university-policies-procedures/",
-                  target: "csun"
-                }
-              },
-              [_vm._v("University Policies & Procedures")]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-4 pl-0" }, [
-          _c("div", { staticClass: "mb-2 mb-lg-1" }, [
-            _c(
-              "a",
-              {
-                attrs: {
-                  href: "//www.csun.edu/sites/default/files/900-12.pdf",
-                  target: "csun"
-                }
-              },
-              [_vm._v("Terms and Conditions for Use")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-2 mb-lg-1" }, [
-            _c(
-              "a",
-              {
-                attrs: {
-                  href: "//www.csun.edu/sites/default/files/500-8025.pdf",
-                  target: "csun"
-                }
-              },
-              [_vm._v("Privacy Policy")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-2 mb-lg-1" }, [
-            _c(
-              "a",
-              {
-                attrs: {
-                  href: "//www.csun.edu/it/document-viewers",
-                  target: "csun"
-                }
-              },
-              [_vm._v("Document Reader")]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-4 px-0" }, [
-          _c("div", [
-            _c(
-              "a",
-              { attrs: { href: "//www2.calstate.edu", target: "csun" } },
-              [_vm._v("California State University")]
-            )
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "footer-metaphor__subfooter mt-5" }, [
+    return _c("footer", { staticClass: "footer-metaphor" }, [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-2" }, [
-            _c("img", {
-              staticClass: "footer-metaphor__logo mb-3",
-              attrs: {
-                src:
-                  "//s3-us-west-2.amazonaws.com/metalab-fonts/images/metalab-logo.svg"
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-2 mb-md-0" }, [
-              _c(
-                "a",
-                { attrs: { href: "//www.metalab.csun.edu", target: "csun" } },
-                [_vm._v("metalab.csun.edu")]
-              )
+          _c("div", { staticClass: "col-12 col-md-5" }, [
+            _c("div", { staticClass: "row mb-3 mb-md-0" }, [
+              _c("div", { staticClass: "col-12 col-md-3" }, [
+                _c("img", {
+                  staticClass:
+                    "d-block mx-auto mx-md-0 img-fluid footer-metaphor__emblem mb-3 mb-md-0",
+                  attrs: {
+                    src:
+                      "//s3-us-west-2.amazonaws.com/csun-metalab/metaphor/dist/img/csun-emblem.svg",
+                    alt: "CSUN Emblem"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-9" }, [
+                _c("h6", [_vm._v("META+LAB ")]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n                © California State University, Northridge "
+                  ),
+                  _c("br"),
+                  _vm._v(
+                    "\n                18111 Nordhoff Street, Northridge, CA 91330 "
+                  ),
+                  _c("br"),
+                  _vm._v("\n                Phone: "),
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("(818) 677-1200")]),
+                  _vm._v(" / "),
+                  _c(
+                    "a",
+                    {
+                      attrs: { href: "//www.csun.edu/contact", target: "csun" }
+                    },
+                    [_vm._v("Contact Us")]
+                  )
+                ])
+              ])
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "offset-md-6 col-md-4 align-self-center" }, [
-            _c("div", { staticClass: "text-center text-md-right" }, [
-              _vm._v(
-                "\n                    Explore. Learn. Go Beyond.\n                  "
-              )
+          _c("div", { staticClass: "col-12 col-md-7" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12 col-md-4" }, [
+                _c("div", { staticClass: "mb-2 mb-lg-1" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "//www.csun.edu/emergency/",
+                        target: "csun"
+                      }
+                    },
+                    [_vm._v("Emergency Information")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "mb-2 mb-lg-1" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href:
+                          "//www.csun.edu/afvp/university-policies-procedures/",
+                        target: "csun"
+                      }
+                    },
+                    [_vm._v("University Policies & Procedures")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-4 pl-0" }, [
+                _c("div", { staticClass: "mb-2 mb-lg-1" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "//www.csun.edu/sites/default/files/900-12.pdf",
+                        target: "csun"
+                      }
+                    },
+                    [_vm._v("Terms and Conditions for Use")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "mb-2 mb-lg-1" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "//www.csun.edu/sites/default/files/500-8025.pdf",
+                        target: "csun"
+                      }
+                    },
+                    [_vm._v("Privacy Policy")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "mb-2 mb-lg-1" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "//www.csun.edu/it/document-viewers",
+                        target: "csun"
+                      }
+                    },
+                    [_vm._v("Document Reader")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-4 px-0" }, [
+                _c("div", [
+                  _c(
+                    "a",
+                    { attrs: { href: "//www2.calstate.edu", target: "csun" } },
+                    [_vm._v("California State University")]
+                  )
+                ])
+              ])
             ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "footer-metaphor__subfooter mt-5" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-2" }, [
+              _c("img", {
+                staticClass: "footer-metaphor__logo mb-3",
+                attrs: {
+                  src:
+                    "//s3-us-west-2.amazonaws.com/csun-metalab/metaphor/dist/img/metalab-logo.svg",
+                  alt: "META+LAB Logo"
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-2 mb-md-0" }, [
+                _c(
+                  "a",
+                  { attrs: { href: "//www.metalab.csun.edu", target: "csun" } },
+                  [_vm._v("metalab.csun.edu")]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "offset-md-6 col-md-4 align-self-center" },
+              [
+                _c("div", { staticClass: "text-center text-md-right" }, [
+                  _vm._v(
+                    "\n                        Explore. Learn. Go Beyond.\n                    "
+                  )
+                ])
+              ]
+            )
           ])
         ])
       ])
@@ -6889,7 +6891,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "row justify-content-center" }, [
     _vm.submitted === false
       ? _c(
           "button",
@@ -7017,6 +7019,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     methods: {
@@ -7093,28 +7099,29 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c("div", { staticClass: "col-md-4" }, [
-        _c(
-          "label",
-          { staticClass: "form-control--required", attrs: { for: "username" } },
-          [_vm._v("Username or Email")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            name: "username",
-            type: "text",
-            id: "username",
-            placeholder: "Username or Email",
-            required: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "invalid-feedback" }, [
-          _vm._v(
-            "\n                    Please enter your CSUN username (ie. jos8693) or your CSUN email address.\n                "
-          )
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-sm-7 col-md-5 col-lg-4" }, [
+          _c(
+            "label",
+            { staticClass: "form-label--required", attrs: { for: "username" } },
+            [_vm._v("Username or Email")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "form-control",
+            attrs: {
+              name: "username",
+              type: "text",
+              id: "username",
+              placeholder: "Username or Email"
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "invalid-feedback" }, [
+            _vm._v(
+              "\n                        Please enter your CSUN username (ie. jos8693) or your CSUN email address.\n                    "
+            )
+          ])
         ])
       ])
     ])
@@ -7124,27 +7131,29 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c("div", { staticClass: "col-md-4" }, [
-        _c(
-          "label",
-          { staticClass: "form-control--required", attrs: { for: "password" } },
-          [_vm._v("Password")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            name: "password",
-            type: "password",
-            id: "password",
-            placeholder: "Password"
-          }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "invalid-feedback" }, [
-          _vm._v(
-            "\n                    Invalid password. Please try again.\n                "
-          )
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-sm-7 col-md-5 col-lg-4" }, [
+          _c(
+            "label",
+            { staticClass: "form-label--required", attrs: { for: "password" } },
+            [_vm._v("Password")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "form-control",
+            attrs: {
+              name: "password",
+              type: "password",
+              id: "password",
+              placeholder: "Password"
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "invalid-feedback" }, [
+            _vm._v(
+              "\n                        Invalid password. Please try again.\n                    "
+            )
+          ])
         ])
       ])
     ])
@@ -7548,7 +7557,7 @@ var render = function() {
             _c(
               "a",
               {
-                staticClass: "profile-avatar profile-img",
+                staticClass: "profile-img",
                 attrs: { href: "#" },
                 on: {
                   click: function($event) {
@@ -7572,13 +7581,13 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", [
-            _c("h2", { staticClass: "text-center display-name" }, [
+            _c("h2", { staticClass: "text-center my-5" }, [
               _vm._v(_vm._s(this.user.display_name))
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "display-name" } }, [
+            _c("label", { attrs: { for: "profile-name" } }, [
               _vm._v("Display Name")
             ]),
             _vm._v(" "),

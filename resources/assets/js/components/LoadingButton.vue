@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="row justify-content-center">
         <button v-if="submitted === false" type="submit" @click="buttonPressed" class="btn btn-primary">
             <i class="fas fa-sign-in-alt"></i>
             {{ title }}
