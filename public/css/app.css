@@ -15994,9 +15994,8 @@ div.datepicker-calendar.default button.datepicker-close {
 }
 
 .login__spinner {
-  margin-top: 28px;
-  position: absolute;
-  vertical-align: middle;
+  position: relative;
+  top: 12px;
   margin-left: 12px;
 }
 
