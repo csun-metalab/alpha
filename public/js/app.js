@@ -6299,6 +6299,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -6436,15 +6438,15 @@ var render = function() {
     "nav",
     { staticClass: "container navbar navbar-metaphor navbar-expand-sm" },
     [
+      _c("a", { staticClass: "navbar-brand", attrs: { href: this.url } }, [
+        _c("span", { staticClass: "sr-only" }, [_vm._v("CSUN Logo")]),
+        _vm._v(" "),
+        _c("span", { staticClass: "navbar-brand__subbrand" }, [
+          _vm._v(_vm._s(this.appName))
+        ])
+      ]),
+      _vm._v(" "),
       _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "a",
-        { staticClass: "navbar-brand__sub-brand", attrs: { href: this.url } },
-        [_vm._v(_vm._s(this.appName))]
-      ),
-      _vm._v(" "),
-      _vm._m(1),
       _vm._v(" "),
       _c(
         "div",
@@ -6485,16 +6487,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      { staticClass: "navbar-brand", attrs: { href: "//www.csun.edu" } },
-      [_c("span", { staticClass: "sr-only" }, [_vm._v("CSUN Logo")])]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
