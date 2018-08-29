@@ -16040,11 +16040,11 @@ div.datepicker-calendar.default button.datepicker-close {
 
 html {
   position: relative;
-  min-height: 90vh;
+  min-height: 100%;
 }
 
 body {
-  margin-bottom: 30px;
+  margin-bottom: 244px;
   /* Margin bottom by footer height */
 }
 
@@ -16052,27 +16052,6 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  vertical-align: text-bottom;
-  font-size: 1.3rem;
-  height: 30px;
-  padding-top: 30px;
-}
-
-/* Footer Styles
--------------------------------------------------- */
-.footer-seal {
-  margin-bottom: 10px;
-}
-
-.csun-seal {
-  margin: 1rem;
-}
-
-.footer__links {
-  margin-top: 1.3rem;
-}
-
-.footer-metaphor {
-  margin-top: 0;
-  font-size: 1.3rem;
+  height: 244px;
+  padding-top: 50px;
 }
