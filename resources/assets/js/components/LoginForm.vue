@@ -5,7 +5,7 @@
                 <div class="row justify-content-center">
                     <div class="col-sm-7 col-md-5 col-lg-4">
                         <label for="username" class="form-label--required">Username or Email</label>
-                        <input class="form-control" name="username" type="text" id="username" placeholder="Username or Email">
+                        <input class="form-control" name="username" type="text" id="username" placeholder="Username or Email" required>
                         <div class="invalid-feedback">
                             Please enter your CSUN username (ie. jos8693) or your CSUN email address.
                         </div>

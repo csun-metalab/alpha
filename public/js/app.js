@@ -7105,7 +7105,8 @@ var staticRenderFns = [
               name: "username",
               type: "text",
               id: "username",
-              placeholder: "Username or Email"
+              placeholder: "Username or Email",
+              required: ""
             }
           }),
           _vm._v(" "),
