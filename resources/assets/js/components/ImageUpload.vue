@@ -24,37 +24,35 @@
 </template>
 
 <script>
-import LoadingButton from './LoadingButton';
+import LoadingButton from './LoadingButton'
 export default {
     props: ['profileImage', 'displayName', 'emailUri', 'entityType'],
     components: {
-        'loading-button': LoadingButton,
+        'loading-button': LoadingButton
     },
-    data() {
+    data () {
         return {
             uploadImageBtn: true,
             myCroppa: {},
-            imageType: 'avatar',
-        };
+            imageType: 'avatar'
+        }
     },
     methods: {
         uploadPhoto() {
-            let base64Img = this.myCroppa.generateDataUrl('image/jpeg', 0.8);
-            window.axios
-                .post(this.emailUri + '/image', {
-                    profile_image: base64Img,
-                    entity_type: this.entityType,
-                    image_type: this.imageType,
-                })
-                .then(response => {
-                    this.$emit('image-upload', response.data.message);
-                })
-                .catch(error => {
-                    this.$emit(
-                        'image-upload',
-                        'Oh no! An error occurred please try again.'
-                    );
-                });
+            let base64Img = this.myCroppa.generateDataUrl('image/jpeg', 1)
+            window.axios.post(this.emailUri + '/image', {
+                profile_image: base64Img,
+                entity_type: this.entityType,
+                image_type: this.imageType
+            }).then(response => {
+                if (response.data.success === 'true') {
+                    this.$emit('image-upload', {title: 'Success!', message: response.data.message, success: true})
+                } else {
+                    this.$emit('image-upload', {title: 'Oh no!', message: response.data.message, success: false})
+                }
+            }).catch(error =>  {
+                this.$emit('image-upload', {title: 'Oh no!', message: 'An error occurred, please try again.', success: false})
+            })
         },
         imageInit() {
             let elm = this.myCroppa.getCanvas();
@@ -69,5 +67,5 @@ export default {
             }
         },
     },
-};
+}
 </script>

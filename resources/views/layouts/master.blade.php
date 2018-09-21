@@ -24,7 +24,6 @@
                     @yield('content')
                 </div>
                 <csun-footer app-name="{{ config('app.name') }}"></csun-footer>
-                <meta-footer></meta-footer>
         </div>
     </body>
     <script src="{{ asset('js/manifest.js') }}"></script>

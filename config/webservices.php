@@ -14,6 +14,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application secret key
+    |--------------------------------------------------------------------------
+    |
+    | This is a secret key shared between alpha and directory.
+    |
+    */
+
+    'directory_secret_key' => env('DIRECTORY_SECRET_KEY', ''),
+
+    /*
+    |--------------------------------------------------------------------------
     | Media web service url
     |--------------------------------------------------------------------------
     |
@@ -32,5 +43,5 @@ return [
     |
     */
 
-    'secret_key' => env('DIRECTORY_SECRET_KEY', ''),
+    'media_secret_key' => env('MEDIA_SECRET_KEY', ''),
 ];

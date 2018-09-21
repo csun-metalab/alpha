@@ -7241,6 +7241,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -7260,8 +7263,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             nickname: '',
             confidential_flag: false,
             uploadPicture: false,
-            showAlert: false,
-            alertMessage: ''
+            successAlert: false,
+            dangerAlert: false,
+            alertDetails: null
         };
     },
     created: function created() {
@@ -7274,8 +7278,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.uploadPicture = true;
         },
         showPopUpAlert: function showPopUpAlert(type) {
-            this.alertMessage = type;
-            this.showAlert = true;
+            if (type.success) {
+                this.successAlert = type.success;
+            } else {
+                // type.success is false so let's
+                // show the alert by taking the
+                // compliment of type.success
+                this.dangerAlert = !type.success;
+            }
+            this.alertDetails = type;
         }
     }
 });
@@ -7332,15 +7343,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         uploadPhoto: function uploadPhoto() {
             var _this = this;
 
-            var base64Img = this.myCroppa.generateDataUrl('image/jpeg', 0.8);
+            var base64Img = this.myCroppa.generateDataUrl('image/jpeg', 1);
             window.axios.post(this.emailUri + '/image', {
                 profile_image: base64Img,
                 entity_type: this.entityType,
                 image_type: this.imageType
             }).then(function (response) {
-                _this.$emit('image-upload', response.data.message);
+                if (response.data.success === 'true') {
+                    _this.$emit('image-upload', { title: 'Success!', message: response.data.message, success: true });
+                } else {
+                    _this.$emit('image-upload', { title: 'Oh no!', message: response.data.message, success: false });
+                }
             }).catch(function (error) {
-                _this.$emit('image-upload', 'Oh no! An error occurred please try again.');
+                _this.$emit('image-upload', { title: 'Oh no!', message: 'An error occurred, please try again.', success: false });
             });
         },
         imageInit: function imageInit() {
@@ -7521,9 +7536,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 email: this.user.email,
                 nickname: this.nickname
             }).then(function (response) {
-                _this.$emit('show-alert', response.data.message);
+                if (response.data.success === 'true') {
+                    _this.$emit('show-alert', { title: 'Success!', message: response.data.message, success: true });
+                } else {
+                    _this.$emit('show-alert', { title: 'Oh No!', message: response.data.message, success: false });
+                }
             }).catch(function (error) {
-                _this.$emit('show-alert', 'Oh no! An error occurred please try again.');
+                _this.$emit('show-alert', { title: 'Oh No!', message: 'An error occurred please try again.', success: false });
             });
         },
         editImage: function editImage() {
@@ -7563,12 +7582,27 @@ var render = function() {
                 _c("img", {
                   staticClass: "rounded-circle img-fluid",
                   attrs: {
-                    src: this.user.directory_data.profile_image,
+                    src: this.user.avatar_image,
                     alt: this.user.display_name + "'s Profile Image"
                   }
                 }),
                 _vm._v(" "),
-                _c("div", { staticClass: "edit-img" }, [_vm._v("Edit Image")])
+                _c("br"),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "type--center",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.editImage($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Edit Image")]
+                )
               ]
             )
           ]),
@@ -7785,7 +7819,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'PopUpAlert',
-    props: ['message']
+    props: ['details']
 });
 
 /***/ }),
@@ -7796,9 +7830,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "alert alert--success type--white" }, [
-    _c("strong", [_vm._v("Success!")]),
-    _vm._v(" " + _vm._s(this.message) + "\n    "),
+  return _c("div", { staticClass: "type--white" }, [
+    _c("strong", [_vm._v(_vm._s(this.details.title))]),
+    _vm._v(" " + _vm._s(this.details.message) + "\n    "),
     _c(
       "a",
       {
@@ -7835,12 +7869,25 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm.showAlert
+      _vm.successAlert
         ? _c("pop-up-alert", {
-            attrs: { message: this.alertMessage },
+            staticClass: "alert alert--success",
+            attrs: { details: this.alertDetails },
             on: {
               "close-alert": function($event) {
-                _vm.showAlert = !_vm.showAlert
+                _vm.successAlert = !_vm.successAlert
+              }
+            }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.dangerAlert
+        ? _c("pop-up-alert", {
+            staticClass: "alert alert--danger",
+            attrs: { details: this.alertDetails },
+            on: {
+              "close-alert": function($event) {
+                _vm.dangerAlert = !_vm.dangerAlert
               }
             }
           })
@@ -7856,7 +7903,7 @@ var render = function() {
           })
         : _c("image-upload", {
             attrs: {
-              "profile-image": this.user.directory_data.profile_image,
+              "profile-image": this.user.avatar_image,
               "display-name": this.user.display_name,
               "entity-type": this.user.affiliation,
               "email-uri": this.user.email_uri
