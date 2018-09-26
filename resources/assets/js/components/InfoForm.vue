@@ -2,12 +2,9 @@
     <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 pt-5">
             <form>
-                <div class="form-group">
-                    <a href="#" class="profile-img" @click.prevent="editImage">
+                <div class="form__group profile-avatar profile-img">
                         <img :src="this.user.avatar_image" class="rounded-circle img-fluid" :alt="this.user.display_name + '\'s Profile Image'">
-                        <br>
-                        <a href="#" class="type--center" @click.prevent="editImage">Edit Image</a>
-                    </a>
+                        <a href="#" class="edit-img" @click.prevent="editImage">Edit Image</a>
                 </div>
                 <div>
                     <h2 class="text-center my-5">{{ this.user.display_name }}</h2>
@@ -68,16 +65,30 @@ export default {
                     confidential: this.confidential_flag,
                     display_name: this.display_name,
                     email: this.user.email,
-                    nickname: this.nickname
-                }).then(response => {
-                if (response.data.success === 'true') {
-                    this.$emit('show-alert', {title: 'Success!', message: response.data.message, success: true});
-                } else {
-                    this.$emit('show-alert', {title: 'Oh No!', message: response.data.message, success: false})
-                }
-            }).catch(error => {
-                this.$emit('show-alert', {title: 'Oh No!', message: 'An error occurred please try again.', success: false})
-            })
+                    nickname: this.nickname,
+                })
+                .then(response => {
+                    if (response.data.success === 'true') {
+                        this.$emit('show-alert', {
+                            title: 'Success!',
+                            message: response.data.message,
+                            success: true,
+                        });
+                    } else {
+                        this.$emit('show-alert', {
+                            title: 'Oh No!',
+                            message: response.data.message,
+                            success: false,
+                        });
+                    }
+                })
+                .catch(error => {
+                    this.$emit('show-alert', {
+                        title: 'Oh No!',
+                        message: 'An error occurred please try again.',
+                        success: false,
+                    });
+                });
         },
         editImage() {
             this.$emit('edit-photo');

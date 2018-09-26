@@ -7502,9 +7502,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'InfoForm',
@@ -7537,12 +7534,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 nickname: this.nickname
             }).then(function (response) {
                 if (response.data.success === 'true') {
-                    _this.$emit('show-alert', { title: 'Success!', message: response.data.message, success: true });
+                    _this.$emit('show-alert', {
+                        title: 'Success!',
+                        message: response.data.message,
+                        success: true
+                    });
                 } else {
-                    _this.$emit('show-alert', { title: 'Oh No!', message: response.data.message, success: false });
+                    _this.$emit('show-alert', {
+                        title: 'Oh No!',
+                        message: response.data.message,
+                        success: false
+                    });
                 }
             }).catch(function (error) {
-                _this.$emit('show-alert', { title: 'Oh No!', message: 'An error occurred please try again.', success: false });
+                _this.$emit('show-alert', {
+                    title: 'Oh No!',
+                    message: 'An error occurred please try again.',
+                    success: false
+                });
             });
         },
         editImage: function editImage() {
@@ -7565,11 +7574,19 @@ var render = function() {
       { staticClass: "col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 pt-5" },
       [
         _c("form", [
-          _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "form__group profile-avatar profile-img" }, [
+            _c("img", {
+              staticClass: "rounded-circle img-fluid",
+              attrs: {
+                src: this.user.avatar_image,
+                alt: this.user.display_name + "'s Profile Image"
+              }
+            }),
+            _vm._v(" "),
             _c(
               "a",
               {
-                staticClass: "profile-img",
+                staticClass: "edit-img",
                 attrs: { href: "#" },
                 on: {
                   click: function($event) {
@@ -7578,32 +7595,7 @@ var render = function() {
                   }
                 }
               },
-              [
-                _c("img", {
-                  staticClass: "rounded-circle img-fluid",
-                  attrs: {
-                    src: this.user.avatar_image,
-                    alt: this.user.display_name + "'s Profile Image"
-                  }
-                }),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "type--center",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        return _vm.editImage($event)
-                      }
-                    }
-                  },
-                  [_vm._v("Edit Image")]
-                )
-              ]
+              [_vm._v("Edit Image")]
             )
           ]),
           _vm._v(" "),
