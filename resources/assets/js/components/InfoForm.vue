@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 pt-5">
             <form>
-                <div class="form__group profile-avatar profile-img">
+                <div class="form-group profile-img">
                         <img :src="this.user.avatar_image" class="rounded-circle img-fluid" :alt="this.user.display_name + '\'s Profile Image'">
                         <a href="#" class="edit-img" @click.prevent="editImage">Edit Image</a>
                 </div>
@@ -11,8 +11,8 @@
                     <h2 class="text-center my-5">{{ this.user.display_name }}</h2>
                 </div>
                 <div class="form-group">
-                    <label for="profile-name">Display Name</label>
-                    <input class="form-control" id="display-name" name="display-name" type="text" placeholder="Name to display on profile" v-model="display_name">
+                    <label for="profile-name">Profile Name</label>
+                    <input class="form-control" id="profile-name" name="profile-name" type="text" placeholder="Name to display on profile" v-model="display_name">
                 </div>
                 <div class="form-group">
                     <label for="nickname">Nickname (Optional)</label>

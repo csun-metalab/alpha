@@ -18,7 +18,7 @@
             v-bind:entity-type="this.user.affiliation"
             v-bind:email-uri="this.user.email_uri"
             v-on:image-upload="showPopUpAlert"
-            v-on:image-remove="showAlert = false"/>
+            v-on:cancel-pressed="toggleView"/>
     </div>
 </template>
 
@@ -52,18 +52,21 @@ export default {
     },
     methods: {
         editPhoto() {
-            this.uploadPicture = true
+            this.uploadPicture = true;
+        },
+        toggleView() {
+            this.uploadPicture = false;
         },
         showPopUpAlert(type) {
             if (type.success) {
-                this.successAlert = type.success
+                this.successAlert = type.success;
             } else {
                 // type.success is false so let's
                 // show the alert by taking the
                 // compliment of type.success
-                this.dangerAlert = !type.success
+                this.dangerAlert = !type.success;
             }
-            this.alertDetails = type
+            this.alertDetails = type;
         }
     }
 }

@@ -7256,6 +7256,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         editPhoto: function editPhoto() {
             this.uploadPicture = true;
         },
+        toggleView: function toggleView() {
+            this.uploadPicture = false;
+        },
         showPopUpAlert: function showPopUpAlert(type) {
             if (type.success) {
                 this.successAlert = type.success;
@@ -7305,6 +7308,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -7314,7 +7318,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
-            uploadImageBtn: true,
+            uploadImageBtn: false,
             myCroppa: {},
             imageType: 'avatar'
         };
@@ -7356,11 +7360,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             elm.style.borderRadius = '50%';
         },
         disableUploadImageButton: function disableUploadImageButton() {
-            this.uploadImageBtn = false;
+            this.uploadImageBtn = true;
         },
         enableUploadImageButton: function enableUploadImageButton() {
             if (this.uploadImageBtn === false) {
-                this.uploadImageBtn = true;
+                this.uploadImageBtn = false;
             }
         }
     }
@@ -7393,12 +7397,7 @@ var render = function() {
             },
             on: {
               init: _vm.imageInit,
-              "image-remove": [
-                _vm.disableUploadImageButton,
-                function($event) {
-                  _vm.$emit("image-remove")
-                }
-              ],
+              "image-remove": _vm.disableUploadImageButton,
               "new-image": _vm.enableUploadImageButton
             },
             model: {
@@ -7414,29 +7413,38 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "row justify-content-center" }, [
-        this.uploadImageBtn
-          ? _c(
-              "button",
-              {
-                staticClass: "btn btn-primary type-center",
-                attrs: { role: "button" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.uploadPhoto($event)
-                  }
+        _c("div", { staticClass: "btn-group", attrs: { role: "group" } }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              class: { disabled: this.uploadImageBtn },
+              attrs: { role: "button" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.uploadPhoto($event)
                 }
-              },
-              [_vm._v("Save Image")]
-            )
-          : _c(
-              "button",
-              {
-                staticClass: "btn btn-default text-center",
-                attrs: { role: "button" }
-              },
-              [_vm._v("Save Image")]
-            )
+              }
+            },
+            [_vm._v("Save Image")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-light",
+              attrs: { role: "button" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  _vm.$emit("cancel-pressed")
+                }
+              }
+            },
+            [_vm._v("Cancel")]
+          )
+        ])
       ])
     ])
   ])
@@ -7572,34 +7580,30 @@ var render = function() {
         { staticClass: "col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 pt-5" },
         [
           _c("form", [
-            _c(
-              "div",
-              { staticClass: "form__group profile-avatar profile-img" },
-              [
-                _c("img", {
-                  staticClass: "rounded-circle img-fluid",
-                  attrs: {
-                    src: this.user.avatar_image,
-                    alt: this.user.display_name + "'s Profile Image"
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "edit-img",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        return _vm.editImage($event)
-                      }
+            _c("div", { staticClass: "form-group profile-img" }, [
+              _c("img", {
+                staticClass: "rounded-circle img-fluid",
+                attrs: {
+                  src: this.user.avatar_image,
+                  alt: this.user.display_name + "'s Profile Image"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "edit-img",
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.editImage($event)
                     }
-                  },
-                  [_vm._v("Edit Image")]
-                )
-              ]
-            ),
+                  }
+                },
+                [_vm._v("Edit Image")]
+              )
+            ]),
             _vm._v(" "),
             _c("div", [
               _c("h2", { staticClass: "text-center my-5" }, [
@@ -7609,7 +7613,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
               _c("label", { attrs: { for: "profile-name" } }, [
-                _vm._v("Display Name")
+                _vm._v("Profile Name")
               ]),
               _vm._v(" "),
               _c("input", {
@@ -7623,8 +7627,8 @@ var render = function() {
                 ],
                 staticClass: "form-control",
                 attrs: {
-                  id: "display-name",
-                  name: "display-name",
+                  id: "profile-name",
+                  name: "profile-name",
                   type: "text",
                   placeholder: "Name to display on profile"
                 },
@@ -7907,9 +7911,7 @@ var render = function() {
             },
             on: {
               "image-upload": _vm.showPopUpAlert,
-              "image-remove": function($event) {
-                _vm.showAlert = false
-              }
+              "cancel-pressed": _vm.toggleView
             }
           })
     ],

@@ -13,13 +13,14 @@
                 @init="imageInit"
                 @image-remove="disableUploadImageButton"
                 @new-image="enableUploadImageButton"
-                v-on:image-remove="$emit('image-remove')"
                 class="form-group rounded-circle">
         </croppa>
         </div>
         <div class="row justify-content-center">
-            <button @click.prevent="uploadPhoto" role="button" class="btn btn-primary type-center" v-if="this.uploadImageBtn">Save Image</button>
-            <button role="button" class="btn btn-default text-center" v-else>Save Image</button>
+            <div class="btn-group" role="group">
+                <button @click.prevent="uploadPhoto" role="button" class="btn btn-primary" :class="{'disabled': this.uploadImageBtn}">Save Image</button>
+                <button @click.prevent="$emit('cancel-pressed')" role="button" class="btn btn-light">Cancel</button>
+            </div>
         </div>
         </div>
     </div>
@@ -34,7 +35,7 @@ export default {
     },
     data() {
         return {
-            uploadImageBtn: true,
+            uploadImageBtn: false,
             myCroppa: {},
             imageType: 'avatar',
         };
@@ -76,11 +77,11 @@ export default {
             elm.style.borderRadius = '50%';
         },
         disableUploadImageButton() {
-            this.uploadImageBtn = false;
+            this.uploadImageBtn = true;
         },
         enableUploadImageButton() {
             if (this.uploadImageBtn === false) {
-                this.uploadImageBtn = true;
+                this.uploadImageBtn = false;
             }
         },
     },
