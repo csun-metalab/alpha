@@ -7413,7 +7413,7 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "btn-group", attrs: { role: "group" } }, [
+        _c("div", { attrs: { role: "group" } }, [
           _c(
             "button",
             {
@@ -7433,7 +7433,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "btn btn-light",
+              staticClass: "btn btn-secondary ml-2",
               attrs: { role: "button" },
               on: {
                 click: function($event) {

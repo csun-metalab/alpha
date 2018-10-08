@@ -17,9 +17,9 @@
         </croppa>
         </div>
         <div class="row justify-content-center">
-            <div class="btn-group" role="group">
+            <div role="group">
                 <button @click.prevent="uploadPhoto" role="button" class="btn btn-primary" :class="{'disabled': this.uploadImageBtn}">Save Image</button>
-                <button @click.prevent="$emit('cancel-pressed')" role="button" class="btn btn-light">Cancel</button>
+                <button @click.prevent="$emit('cancel-pressed')" role="button" class="btn btn-secondary ml-2">Cancel</button>
             </div>
         </div>
         </div>
