@@ -1,7 +1,10 @@
 <template>
-    <div class="type--white">
-        <strong>{{ this.details.title }}</strong> {{ this.details.message }}
-        <a href="#" @click="$emit('close-alert')" class="alert__close" data-alert-close>&times;</a>
+    <div class="alert-dismissible" role="alert">
+        <button @click="$emit('close-alert')" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>{{ this.details.title }}</strong>
+        <p v-for="message in this.details.message" >{{ message }}</p>
     </div>
 </template>
 

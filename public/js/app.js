@@ -7363,7 +7363,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.uploadImageBtn = true;
         },
         enableUploadImageButton: function enableUploadImageButton() {
-            if (this.uploadImageBtn === false) {
+            if (this.uploadImageBtn === true) {
                 this.uploadImageBtn = false;
             }
         }
@@ -7419,7 +7419,7 @@ var render = function() {
             {
               staticClass: "btn btn-primary",
               class: { disabled: this.uploadImageBtn },
-              attrs: { role: "button" },
+              attrs: { role: "button", disabled: this.uploadImageBtn },
               on: {
                 click: function($event) {
                   $event.preventDefault()
@@ -7551,12 +7551,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         success: false
                     });
                 }
+                window.scrollTo(0, 0);
             }).catch(function (error) {
                 _this.$emit('show-alert', {
                     title: 'Oh No!',
                     message: 'An error occurred please try again.',
                     success: false
                 });
+                window.scrollTo(0, 0);
             });
         },
         editImage: function editImage() {
@@ -7817,6 +7819,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'PopUpAlert',
@@ -7831,23 +7836,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "type--white" }, [
-    _c("strong", [_vm._v(_vm._s(this.details.title))]),
-    _vm._v(" " + _vm._s(this.details.message) + "\n    "),
-    _c(
-      "a",
-      {
-        staticClass: "alert__close",
-        attrs: { href: "#", "data-alert-close": "" },
-        on: {
-          click: function($event) {
-            _vm.$emit("close-alert")
+  return _c(
+    "div",
+    { staticClass: "alert-dismissible", attrs: { role: "alert" } },
+    [
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: { type: "button", "aria-label": "Close" },
+          on: {
+            click: function($event) {
+              _vm.$emit("close-alert")
+            }
           }
-        }
-      },
-      [_vm._v("×")]
-    )
-  ])
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      ),
+      _vm._v(" "),
+      _c("strong", [_vm._v(_vm._s(this.details.title))]),
+      _vm._v(" "),
+      _vm._l(this.details.message, function(message) {
+        return _c("p", [_vm._v(_vm._s(message))])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -7872,7 +7886,7 @@ var render = function() {
     [
       _vm.successAlert
         ? _c("pop-up-alert", {
-            staticClass: "alert alert--success",
+            staticClass: "alert alert-success",
             attrs: { details: this.alertDetails },
             on: {
               "close-alert": function($event) {
@@ -7884,7 +7898,7 @@ var render = function() {
       _vm._v(" "),
       _vm.dangerAlert
         ? _c("pop-up-alert", {
-            staticClass: "alert alert--danger",
+            staticClass: "alert alert-danger",
             attrs: { details: this.alertDetails },
             on: {
               "close-alert": function($event) {

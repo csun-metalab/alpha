@@ -83,6 +83,7 @@ export default {
                             success: false,
                         });
                     }
+                    window.scrollTo(0, 0);
                 })
                 .catch(error => {
                     this.$emit('show-alert', {
@@ -90,6 +91,7 @@ export default {
                         message: 'An error occurred please try again.',
                         success: false,
                     });
+                    window.scrollTo(0, 0);
                 });
         },
         editImage() {

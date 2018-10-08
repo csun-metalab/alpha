@@ -18,7 +18,7 @@
         </div>
         <div class="row justify-content-center">
             <div role="group">
-                <button @click.prevent="uploadPhoto" role="button" class="btn btn-primary" :class="{'disabled': this.uploadImageBtn}">Save Image</button>
+                <button @click.prevent="uploadPhoto" role="button" class="btn btn-primary" :class="{'disabled': this.uploadImageBtn}" :disabled="this.uploadImageBtn">Save Image</button>
                 <button @click.prevent="$emit('cancel-pressed')" role="button" class="btn btn-secondary ml-2">Cancel</button>
             </div>
         </div>
@@ -80,10 +80,10 @@ export default {
             this.uploadImageBtn = true;
         },
         enableUploadImageButton() {
-            if (this.uploadImageBtn === false) {
+            if (this.uploadImageBtn === true) {
                 this.uploadImageBtn = false;
             }
-        },
+        }
     },
 };
 </script>

@@ -112,13 +112,13 @@ class ProfileController extends Controller
             return response()->json([
                 'status' => '200',
                 'success' => 'true',
-                'message' => 'Your information was successfully updated.'
+                'message' => ['Your information was successfully updated.']
             ]);
         } else {
             return response()->json([
                 'status' => '400',
                 'success' => 'false',
-                'message' => 'An error occurred, please try again.'
+                'message' => ['An error occurred, please try again.']
             ]);
         }
     }

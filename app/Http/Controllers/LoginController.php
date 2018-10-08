@@ -25,6 +25,7 @@ class LoginController extends Controller
                 return redirect()->route('profile.edit.info', auth()->user()->email_uri);
             }
         }
+        session()->flash('message', 'Your username or password is invalid.');
         return redirect()->route('home');
     }
 }

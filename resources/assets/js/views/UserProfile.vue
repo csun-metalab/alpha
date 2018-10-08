@@ -1,10 +1,10 @@
 <template>
     <div>
-        <pop-up-alert class="alert alert--success"
+        <pop-up-alert class="alert alert-success"
                       v-if="successAlert"
                       v-bind:details="this.alertDetails"
                       v-on:close-alert="successAlert = !successAlert"/>
-        <pop-up-alert class="alert alert--danger"
+        <pop-up-alert class="alert alert-danger"
                       v-if="dangerAlert"
                       v-bind:details="this.alertDetails"
                       v-on:close-alert="dangerAlert = !dangerAlert"/>
