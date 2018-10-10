@@ -4,11 +4,11 @@
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 pt-5">
             <form>
                 <div class="form-group profile-img">
-                        <img :src="this.user.avatar_image" class="rounded-circle img-fluid" :alt="this.user.display_name + '\'s Profile Image'">
-                        <a href="#" class="edit-img" @click.prevent="editImage">Edit Image</a>
+                    <img :src="this.user.avatar_image" class="rounded-circle img-fluid" :alt="this.display_name + '\'s Profile Image'">
+                    <a href="#" class="edit-img" @click.prevent="editImage">Edit Image</a>
                 </div>
                 <div>
-                    <h2 class="text-center my-5">{{ this.user.display_name }}</h2>
+                    <h2 class="text-center my-5">{{ this.display_name }}</h2>
                 </div>
                 <div class="form-group">
                     <label for="profile-name">Profile Name</label>
@@ -37,7 +37,7 @@
             </form>
         </div>
     </div>
-    </div>
+</div>
 </template>
 
 <script>
@@ -88,7 +88,7 @@ export default {
                 .catch(error => {
                     this.$emit('show-alert', {
                         title: 'Oh No!',
-                        message: 'An error occurred please try again.',
+                        message: ['An error occurred please try again.'],
                         success: false,
                     });
                     window.scrollTo(0, 0);

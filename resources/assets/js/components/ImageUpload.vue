@@ -6,7 +6,6 @@
                 accept="image/*"
                 remove-button-color="black"
                 :remove-button-size="35"
-                :initial-image="this.profileImage"
                 prevent-white-space
                 placeholder="Select an image."
                 :placeholder-font-size="18"
@@ -14,6 +13,7 @@
                 @image-remove="disableUploadImageButton"
                 @new-image="enableUploadImageButton"
                 class="form-group rounded-circle">
+            <img crossOrigin="anonymous" :src="this.profileImage" slot="initial"/>
         </croppa>
         </div>
         <div class="row justify-content-center">
@@ -67,7 +67,7 @@ export default {
                 .catch(error => {
                     this.$emit('image-upload', {
                         title: 'Oh no!',
-                        message: 'An error occurred, please try again.',
+                        message: ['An error occurred, please try again.'],
                         success: false,
                     });
                 });
