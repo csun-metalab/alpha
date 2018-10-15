@@ -1,5 +1,7 @@
 <template>
-    <div>
+<div>
+    <div class="container pt-5">
+        <div class="row justify-content-center">
         <croppa v-model="myCroppa"
                 accept="image/*"
                 remove-button-color="black"
@@ -10,70 +12,78 @@
                 @init="imageInit"
                 @image-remove="disableUploadImageButton"
                 @new-image="enableUploadImageButton"
-                v-on:image-remove="$emit('image-remove')"
-                class="form__group croppa__image--radius">
-            <img crossOrigin="anonymous" :src="this.profileImage" slot="initial" :alt="this.displayName + '\'s Profile Image'">
+                class="form-group rounded-circle">
+            <img crossOrigin="anonymous" :src="this.profileImage" slot="initial"/>
         </croppa>
-        <div class="form__group type--center">
-            <button @click.prevent="uploadPhoto" role="button" class="btn btn-primary type--center" v-if="this.uploadImageBtn">Save Image</button>
-            <button role="button" class="btn btn-default type--center" v-else>Save Image</button>
+        </div>
+        <div class="row justify-content-center">
+            <div role="group">
+                <button @click.prevent="uploadPhoto" role="button" class="btn btn-primary" :class="{'disabled': this.uploadImageBtn}" :disabled="this.uploadImageBtn">Save Image</button>
+                <button @click.prevent="$emit('cancel-pressed')" role="button" class="btn btn-secondary ml-2">Cancel</button>
+            </div>
+        </div>
         </div>
     </div>
 </template>
 
 <script>
-    import LoadingButton from './LoadingButton'
-    export default {
-        props: ['profileImage', 'displayName', 'emailUri', 'entityType'],
-        components: {
-            'loading-button': LoadingButton
-        },
-        data () {
-            return {
-                uploadImageBtn: true,
-                myCroppa: {},
-                imageType: 'avatar'
-            }
-        },
-        methods: {
-            uploadPhoto() {
-                let base64Img = this.myCroppa.generateDataUrl('image/jpeg', 1)
-                window.axios.post(this.emailUri + '/image', {
+import LoadingButton from './LoadingButton';
+export default {
+    props: ['profileImage', 'displayName', 'emailUri', 'entityType'],
+    components: {
+        'loading-button': LoadingButton,
+    },
+    data() {
+        return {
+            uploadImageBtn: false,
+            myCroppa: {},
+            imageType: 'avatar',
+        };
+    },
+    methods: {
+        uploadPhoto() {
+            let base64Img = this.myCroppa.generateDataUrl('image/jpeg', 1);
+            window.axios
+                .post(this.emailUri + '/image', {
                     profile_image: base64Img,
                     entity_type: this.entityType,
-                    image_type: this.imageType
-                }).then(response => {
-                    if (response.data.success === 'true') {
-                        this.$emit('image-upload', {title: 'Success!', message: response.data.message, success: true})
-                    } else {
-                        this.$emit('image-upload', {title: 'Oh no!', message: response.data.message, success: false})
-                    }
-                }).catch(error =>  {
-                    this.$emit('image-upload', {title: 'Oh no!', message: 'An error occurred, please try again.', success: false})
+                    image_type: this.imageType,
                 })
-            },
-            imageInit() {
-                let elm = this.myCroppa.getCanvas();
-                elm.style.borderRadius="50%";
-            },
-            disableUploadImageButton()
-            {
-                this.uploadImageBtn = false
-            },
-            enableUploadImageButton()
-            {
-                if (this.uploadImageBtn === false) {
-                    this.uploadImageBtn = true
-                }
+                .then(response => {
+                    if (response.data.success === 'true') {
+                        this.$emit('image-upload', {
+                            title: 'Success!',
+                            message: response.data.message,
+                            success: true,
+                        });
+                    } else {
+                        this.$emit('image-upload', {
+                            title: 'Oh no!',
+                            message: response.data.message,
+                            success: false,
+                        });
+                    }
+                })
+                .catch(error => {
+                    this.$emit('image-upload', {
+                        title: 'Oh no!',
+                        message: ['An error occurred, please try again.'],
+                        success: false,
+                    });
+                });
+        },
+        imageInit() {
+            let elm = this.myCroppa.getCanvas();
+            elm.style.borderRadius = '50%';
+        },
+        disableUploadImageButton() {
+            this.uploadImageBtn = true;
+        },
+        enableUploadImageButton() {
+            if (this.uploadImageBtn === true) {
+                this.uploadImageBtn = false;
             }
         }
-    }
+    },
+};
 </script>
-
-<style>
-    .croppa__image--radius {
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        border-radius: 50%;
-    }
-</style>

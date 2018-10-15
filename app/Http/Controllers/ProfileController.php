@@ -9,11 +9,12 @@ use Illuminate\Support\Facades\Validator;
 class ProfileController extends Controller
 {
     /**
+     * @param $emailUri
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getEditInfo()
+    public function getEditInfo($emailUri)
     {
-        return view('pages.profile.edit-info');
+        return view('pages.profile.edit-info', compact('emailUri'));
     }
 
     /**
@@ -64,13 +65,13 @@ class ProfileController extends Controller
                 return [
                     'status' => '200',
                     'success' => 'true',
-                    'message' => 'The image for '.$emailUri.' was successfully uploaded.'
+                    'message' => ['The image for '.$emailUri.' was successfully uploaded.']
                 ];
             } else {
                 return [
                     'status' => '400',
                     'success' => 'false',
-                    'message' => 'An error occurred, please try again.'
+                    'message' => ['An error occurred, please try again.']
                 ];
             }
         }
@@ -78,7 +79,6 @@ class ProfileController extends Controller
 
     /**
      * @param Request $request
-     * @param $emailUri
      * @return array
      */
     public function postStoreInfo(Request $request)
@@ -112,13 +112,13 @@ class ProfileController extends Controller
             return response()->json([
                 'status' => '200',
                 'success' => 'true',
-                'message' => 'Your information was successfully updated.'
+                'message' => ['Your information was successfully updated.']
             ]);
         } else {
             return response()->json([
                 'status' => '400',
                 'success' => 'false',
-                'message' => 'An error occurred, please try again.'
+                'message' => ['An error occurred, please try again.']
             ]);
         }
     }

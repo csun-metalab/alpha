@@ -6,8 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="app-url" content="{{ url('/') }}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>{{ config('app.name') }}</title>
-        <link rel="stylesheet" href="//cdn.metalab.csun.edu/metaphor/css/metaphor.css">
+        <title>CSUN | {{ config('app.name') }}</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
 
@@ -21,14 +20,13 @@
 
         <div id="app">
             <nav-bar app-name="{{ config('app.name') }}"></nav-bar>
-            <div class="main main--metalab section">
                 <div class="container">
                     @yield('content')
                 </div>
                 <csun-footer app-name="{{ config('app.name') }}"></csun-footer>
-                <meta-footer></meta-footer>
-            </div>
         </div>
     </body>
+    <script src="{{ asset('js/manifest.js') }}"></script>
+    <script src="{{ asset('js/vendor.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </html>

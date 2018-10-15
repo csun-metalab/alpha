@@ -1,0 +1,15 @@
+.form-label--required::after {
+    margin-left: 2px;
+    color: #D22030;
+    content: "*";
+}
+
+.h1__login {
+    margin: 3rem 0;
+}
+
+.login__spinner {
+    position: relative;
+    top: 12px;
+    margin-left: 12px;
+}

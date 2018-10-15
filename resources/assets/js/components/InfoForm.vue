@@ -1,81 +1,102 @@
 <template>
-    <div>
-        <div class="form__group profile-avatar profile-img">
-            <img :src="this.user.avatar_image" class="img--circle" :alt="this.user.display_name + '\'s Profile Image'">
-            <br>
-            <a href="#" class="type--center" @click.prevent="editImage">Edit Image</a>
-        </div>
-        <div class="form__group">
-            <label for="display-name">Display Name</label>
-            <input id="display-name" name="display-name" type="text" v-model="display_name">
-        </div>
-        <div class="form__group">
-            <label for="nickname">Nickname</label>
-            <input id="nickname" name="nickname" type="text" v-model="nickname">
-        </div>
-        <div class="form__group">
-            <label for="biography">Biography</label>
-            <textarea id="biography" name="biography" v-model="biography"></textarea>
-        </div>
-        <div class="form__group">
-            <strong>Profile Visibility</strong>
-            <div class="row">
-                <div class="col-md-4">
-                    <input type="radio" id="public" :value="false" v-model="confidential_flag">
-                    <label class="radio-inline" for="public">Public</label>
+<div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 pt-5">
+            <form>
+                <div class="form-group profile-img">
+                    <img :src="this.user.avatar_image" class="rounded-circle img-fluid" :alt="this.display_name + '\'s Profile Image'">
+                    <a href="#" class="edit-img" @click.prevent="editImage">Edit Image</a>
                 </div>
-                <div class="col-md-4">
-                    <input type="radio" id="private" :value="true" v-model="confidential_flag">
-                    <label class="radio-inline" for="private">Private</label>
+                <div>
+                    <h2 class="text-center my-5">{{ this.display_name }}</h2>
                 </div>
-            </div>
-        </div>
-        <div class="form__group type--center">
-            <button @click.prevent="editInfo" role="button" class="btn btn-primary">Update Information</button>
+                <div class="form-group">
+                    <label for="profile-name">Profile Name</label>
+                    <input class="form-control" id="profile-name" name="profile-name" type="text" placeholder="Name to display on profile" v-model="display_name">
+                </div>
+                <div class="form-group">
+                    <label for="nickname">Nickname (Optional)</label>
+                    <input class="form-control" id="nickname" name="nickname" type="text" placeholder="Nickname" v-model="nickname">
+                </div>
+                <div class="form-group">
+                    <label for="biography">Biography</label>
+                    <textarea class="form-control" rows="5" id="biography" name="biography" placeholder="Tell us about yourself!" v-model="biography"></textarea>
+                </div>
+                <strong>Profile Visibility</strong>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="public" :value="false" v-model="confidential_flag">
+                    <label class="form-check-label" for="public">Public</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="private" :value="true" v-model="confidential_flag">
+                    <label class="form-check-label" for="private">Private</label>
+                </div>
+                <div class="form-group text-center">
+                    <button @click.prevent="editInfo" role="button" class="btn btn-primary">Update Information</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 </template>
 
 <script>
-    export default {
-        name: 'InfoForm',
-        props: ['user'],
-        data () {
-            return {
-                biography: String,
-                confidential_flag: Boolean,
-                display_name: String,
-                email: String,
-                nickname: String
-            }
-        },
-        created () {
-          this.display_name = this.user.display_name
-          this.nickname = this.user.nickname
-          this.biography = this.user.directory_data.biography
-          this.confidential_flag = !!this.user.directory_data.confidential
-        },
-        methods: {
-            editInfo () {
-                window.axios.post(this.user.email_uri + '/info', {
+export default {
+    name: 'InfoForm',
+    props: ['user'],
+    data() {
+        return {
+            biography: String,
+            confidential_flag: Boolean,
+            display_name: String,
+            email: String,
+            nickname: String,
+        };
+    },
+    created() {
+        this.display_name = this.user.display_name;
+        this.nickname = this.user.nickname;
+        this.biography = this.user.directory_data.biography;
+        this.confidential_flag = !!this.user.directory_data.confidential;
+    },
+    methods: {
+        editInfo() {
+            window.axios
+                .post(this.user.email_uri + '/info', {
                     biography: this.biography,
                     confidential: this.confidential_flag,
                     display_name: this.display_name,
                     email: this.user.email,
-                    nickname: this.nickname
-                }).then(response => {
-                    if (response.data.success === 'true') {
-                        this.$emit('show-alert', {title: 'Success!', message: response.data.message, success: true});
-                    } else {
-                        this.$emit('show-alert', {title: 'Oh No!', message: response.data.message, success: false})
-                    }
-                }).catch(error => {
-                    this.$emit('show-alert', {title: 'Oh No!', message: 'An error occurred please try again.', success: false})
+                    nickname: this.nickname,
                 })
-            },
-            editImage () {
-                this.$emit('edit-photo')
-            }
-        }
-    }
+                .then(response => {
+                    if (response.data.success === 'true') {
+                        this.$emit('show-alert', {
+                            title: 'Success!',
+                            message: response.data.message,
+                            success: true,
+                        });
+                    } else {
+                        this.$emit('show-alert', {
+                            title: 'Oh No!',
+                            message: response.data.message,
+                            success: false,
+                        });
+                    }
+                    window.scrollTo(0, 0);
+                })
+                .catch(error => {
+                    this.$emit('show-alert', {
+                        title: 'Oh No!',
+                        message: ['An error occurred please try again.'],
+                        success: false,
+                    });
+                    window.scrollTo(0, 0);
+                });
+        },
+        editImage() {
+            this.$emit('edit-photo');
+        },
+    },
+};
 </script>

@@ -1,28 +1,32 @@
 <template>
-    <div>
-        <button v-if="ok === false" type="submit" @click="buttonPressed" class="btn btn-primary">
-            <i class="fa fa-sign-in-alt"></i>
+    <div class="row justify-content-center">
+        <button v-if="submitted === false" type="submit" @click="buttonPressed" class="btn btn-primary">
+            <i class="fas fa-sign-in-alt"></i>
             {{ title }}
         </button>
-        <div v-if="ok" class="type--center">
-            <i class="fa fa-spinner fa-spin fa-3x fa-blue"></i>
+        <div v-if="submitted" class="type-center">
+        <button type="submit" @click="buttonPressed" class="btn btn-primary">
+            <i class="fas fa-sign-in-alt"></i>
+            {{ title }}
+        </button>
+        <i class="fas fa-spinner fa-spin fa-lg login__spinner"></i>
         </div>
     </div>
 
 </template>
 <script>
-    export default {
-        props:['title'],
-        data: () => {
-            return {
-                ok: false
-            }
+export default {
+    props: ['title'],
+    data: () => {
+        return {
+            submitted: false,
+        };
+    },
+    methods: {
+        buttonPressed() {
+            this.submitted = true;
+            this.$emit('submitted');
         },
-        methods: {
-            buttonPressed () {
-                this.ok = true
-                this.$emit('submitted')
-            }
-        }
-    }
+    },
+};
 </script>
