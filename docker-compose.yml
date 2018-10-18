@@ -8,3 +8,11 @@ services:
       - '8080:80'
     volumes:
       - .:/var/www/
+
+  composer:
+    restart: 'no'
+    container_name: profile-manager_composer
+    image: composer:latest
+    command: install --ignore-platform-reqs
+    volumes:
+      - .:/app/
