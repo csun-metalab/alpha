@@ -21,10 +21,14 @@ class LoginController extends Controller
             $directoryResponse = $guzzle->get(config('webservices.directory_url').
                 'members/email/'. auth()->user()->email);
             $directoryResponse = $guzzle->resolveResponseBody($directoryResponse, 'json');
-            $mediaResponse = $guzzle->get($directoryResponse->people->profile_image);
-            $mediaResponse = $guzzle->resolveResponseBody($mediaResponse, 'json');
-            auth()->user()->directory_data = $directoryResponse->people;
-            auth()->user()->avatar_image = $mediaResponse->avatar_image;
+            if (!empty($directoryResponse->people)) {
+                auth()->user()->directory_data = $directoryResponse->people;
+                auth()->user()->avatar_image = $directoryResponse->people->profile_image;
+            }
+            if (auth()->user()->affiliation === 'student') {
+                $emailUri = strtok(auth()->user()->email, '@');
+                auth()->user()->avatar_image = config('webservices.media_url').auth()->user()->affiliation.'/media/'.$emailUri.'/avatar?secret='.config('webservices.media_secret_key');
+            }
             session()->put('user', auth()->user());
             return redirect()->route('profile.edit.info', auth()->user()->email_uri);
         }

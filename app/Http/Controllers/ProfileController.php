@@ -57,7 +57,7 @@ class ProfileController extends Controller
                 'profile_image' => $request->profile_image,
                 'image_type' => $request->image_type,
                 'entity_type' => $request->entity_type,
-                'secret_key' => config('webservices.media_secret_key')
+                'secret' => config('webservices.media_secret_key')
             ]);
             $response = $guzzle->post(config('webservices.media_url').$emailUri.'/photo');
             $guzzleResponse = $guzzle->resolveResponseBody($response, 'json');

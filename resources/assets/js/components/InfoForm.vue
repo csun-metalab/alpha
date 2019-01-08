@@ -46,7 +46,7 @@ export default {
     props: ['user'],
     data() {
         return {
-            biography: String,
+            biography: '',
             confidential_flag: Boolean,
             display_name: String,
             email: String,
@@ -56,7 +56,9 @@ export default {
     created() {
         this.display_name = this.user.display_name;
         this.nickname = this.user.nickname;
-        this.biography = this.user.directory_data.biography;
+        if (this.user.directory_data != null) {
+            this.biography = this.user.directory_data.biography;
+        }
         this.confidential_flag = !!this.user.directory_data.confidential;
     },
     methods: {

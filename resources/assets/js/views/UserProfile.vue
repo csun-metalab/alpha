@@ -48,7 +48,10 @@ export default {
     },
     created() {
         this.display_name = this.user.display_name;
-        this.biography = this.user.directory_data.biography;
+        console.log('UserProfile', this.user.directory_data.biography);
+        if (this.user.directory_data.biography != null) {
+            this.biography = this.user.directory_data.biography;
+        }
     },
     methods: {
         editPhoto() {

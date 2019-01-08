@@ -3,6 +3,7 @@
     <div class="container pt-5">
         <div class="row justify-content-center">
         <croppa v-model="myCroppa"
+                :initial-image="initialImage"
                 accept="image/*"
                 remove-button-color="black"
                 :remove-button-size="35"
@@ -13,7 +14,6 @@
                 @image-remove="disableUploadImageButton"
                 @new-image="enableUploadImageButton"
                 class="form-group rounded-circle">
-            <img crossOrigin="anonymous" :src="this.profileImage" slot="initial"/>
         </croppa>
         </div>
         <div class="row justify-content-center">
@@ -38,7 +38,16 @@ export default {
             uploadImageBtn: false,
             myCroppa: {},
             imageType: 'avatar',
+            initialImage: null,
         };
+    },
+    mounted() {
+        let image = new Image();
+        // Notice: it's necessary to set "crossorigin" attribute before "src" attribute.
+        image.setAttribute('crossorigin', 'anonymous');
+        image.src = this.profileImage;
+        this.initialImage = image;
+        this.myCroppa.refresh();
     },
     methods: {
         uploadPhoto() {
