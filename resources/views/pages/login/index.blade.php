@@ -9,7 +9,7 @@
         </div>
     @endif
 <div class="row justify-content-center">
-    <h1 class="my-5 ">Student Log In</h1>
+    <h1 class="my-5">Log In</h1>
 </div>
     <login-form></login-form>
 @endsection
