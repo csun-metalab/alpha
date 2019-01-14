@@ -2,19 +2,18 @@
 <div>
     <div class="container pt-5">
         <div class="row justify-content-center">
-        <croppa v-model="myCroppa"
-                :initial-image="initialImage"
-                accept="image/*"
-                remove-button-color="black"
-                :remove-button-size="35"
-                prevent-white-space
-                placeholder="Select an image."
-                :placeholder-font-size="18"
-                @init="imageInit"
-                @image-remove="disableUploadImageButton"
-                @new-image="enableUploadImageButton"
-                class="form-group rounded-circle">
-        </croppa>
+            <croppa v-model="myCroppa"
+                    accept="image/*"
+                    remove-button-color="black"
+                    :remove-button-size="35"
+                    prevent-white-space
+                    placeholder="Select an image."
+                    :placeholder-font-size="18"
+                    @init="imageInit"
+                    @image-remove="disableUploadImageButton"
+                    @new-image="enableUploadImageButton"
+                    class="form-group rounded-circle">
+            </croppa>
         </div>
         <div class="row justify-content-center">
             <div role="group">
@@ -35,19 +34,10 @@ export default {
     },
     data() {
         return {
-            uploadImageBtn: false,
+            uploadImageBtn: true,
             myCroppa: {},
-            imageType: 'avatar',
-            initialImage: null,
+            imageType: 'avatar'
         };
-    },
-    mounted() {
-        let image = new Image();
-        // Notice: it's necessary to set "crossorigin" attribute before "src" attribute.
-        image.setAttribute('crossorigin', 'anonymous');
-        image.src = this.profileImage;
-        this.initialImage = image;
-        this.myCroppa.refresh();
     },
     methods: {
         uploadPhoto() {
@@ -84,6 +74,7 @@ export default {
         imageInit() {
             let elm = this.myCroppa.getCanvas();
             elm.style.borderRadius = '50%';
+            this.myCroppa.chooseFile();
         },
         disableUploadImageButton() {
             this.uploadImageBtn = true;

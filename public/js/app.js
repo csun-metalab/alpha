@@ -7311,7 +7311,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -7321,19 +7320,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
-            uploadImageBtn: false,
+            uploadImageBtn: true,
             myCroppa: {},
-            imageType: 'avatar',
-            initialImage: null
+            imageType: 'avatar'
         };
-    },
-    mounted: function mounted() {
-        var image = new Image();
-        // Notice: it's necessary to set "crossorigin" attribute before "src" attribute.
-        image.setAttribute('crossorigin', 'anonymous');
-        image.src = this.profileImage;
-        this.initialImage = image;
-        this.myCroppa.refresh();
     },
 
     methods: {
@@ -7370,6 +7360,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         imageInit: function imageInit() {
             var elm = this.myCroppa.getCanvas();
             elm.style.borderRadius = '50%';
+            this.myCroppa.chooseFile();
         },
         disableUploadImageButton: function disableUploadImageButton() {
             this.uploadImageBtn = true;
@@ -7399,7 +7390,6 @@ var render = function() {
           _c("croppa", {
             staticClass: "form-group rounded-circle",
             attrs: {
-              "initial-image": _vm.initialImage,
               accept: "image/*",
               "remove-button-color": "black",
               "remove-button-size": 35,
