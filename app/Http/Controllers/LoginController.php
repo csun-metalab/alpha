@@ -35,14 +35,13 @@ class LoginController extends Controller
             $directoryResponse = $guzzle->resolveResponseBody($directoryResponse, 'json');
             if (!empty($directoryResponse->people)) {
                 auth()->user()->directory_data = $directoryResponse->people;
-                auth()->user()->avatar_image = $directoryResponse->people->profile_image.
-                    '&version='.$this->getFormattedTime();
+                auth()->user()->avatar_image = $directoryResponse->people->profile_image;
             }
             if (auth()->user()->affiliation === 'student') {
                 $emailUri = strtok(auth()->user()->email, '@');
                 auth()->user()->avatar_image = config('webservices.media_url').
-                    auth()->user()->affiliation.'/media/'.$emailUri.'/avatar?version='.
-                    $this->getFormattedTime().'&secret='.config('webservices.media_secret_key').'&source=true';
+                    auth()->user()->affiliation.'/media/'.$emailUri.'/avatar?secret='.
+                    config('webservices.media_secret_key').'&source=true';
             }
             session()->put('user', auth()->user());
             return redirect()->route('profile.edit.info', auth()->user()->email_uri);

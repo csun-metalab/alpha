@@ -4,7 +4,7 @@
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 pt-5">
             <form>
                 <div class="form-group profile-img">
-                    <img :src="this.user.avatar_image" class="rounded-circle img-fluid" :alt="this.display_name + '\'s Profile Image'">
+                    <img :src="this.user.avatar_image + '&version=' + this.getTimeStamp()" class="rounded-circle img-fluid" :alt="this.display_name + '\'s Profile Image'">
                     <a href="#" class="edit-img" @click.prevent="editImage">Edit Image</a>
                 </div>
                 <div>
@@ -22,7 +22,7 @@
                     <label for="biography" class="form-label--required font-weight-bold">Biography</label>
                     <textarea class="form-control" rows="5" id="biography" name="biography" placeholder="Tell us about yourself!" v-model="biography"></textarea>
                 </div>
-                <spatn class="form-label--required font-weight-bold">Profile Visibility</spatn>
+                <span class="form-label--required font-weight-bold">Profile Visibility</span>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" id="public" :value="false" v-model="confidential_flag">
                     <label class="form-check-label" for="public">Public</label>
@@ -99,6 +99,9 @@ export default {
         editImage() {
             this.$emit('edit-photo');
         },
-    },
-};
+        getTimeStamp() {
+            return `${window.moment().get('year')}${window.moment().get('hour')}${window.moment().get('minute')}${window.moment().get('second')}`;
+        }
+    }
+}
 </script>
