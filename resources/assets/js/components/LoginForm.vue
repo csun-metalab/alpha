@@ -4,7 +4,7 @@
             <div class="form-group">
                 <div class="row justify-content-center">
                     <div class="col-sm-7 col-md-5 col-lg-4">
-                        <label for="username" class="form-label--required">Username or Email</label>
+                        <label for="username" class="form-label--required font-weight-bold">Username or Email</label>
                         <input class="form-control" name="username" type="text" id="username" placeholder="Username or Email">
                         <div class="invalid-feedback">
                             Please enter your CSUN username (ie. jos8693) or your CSUN email address.
@@ -15,7 +15,7 @@
                 <div class="form-group">
                 <div class="row justify-content-center">
                     <div class="col-sm-7 col-md-5 col-lg-4">
-                        <label for="password" class="form-label--required">Password</label>
+                        <label for="password" class="form-label--required font-weight-bold">Password</label>
                         <input class="form-control" name="password" type="password" id="password" placeholder="Password">
                         <div class="invalid-feedback">
                             Invalid password. Please try again.

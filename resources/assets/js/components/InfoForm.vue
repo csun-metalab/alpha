@@ -11,18 +11,18 @@
                     <h2 class="text-center my-5">{{ this.display_name }}</h2>
                 </div>
                 <div class="form-group">
-                    <label for="profile-name">Profile Name</label>
+                    <label for="profile-name" class="form-label--required font-weight-bold">Profile Name</label>
                     <input class="form-control" id="profile-name" name="profile-name" type="text" placeholder="Name to display on profile" v-model="display_name">
                 </div>
                 <div class="form-group">
-                    <label for="nickname">Nickname (Optional)</label>
+                    <label for="nickname" class="font-weight-bold">Nickname (Optional)</label>
                     <input class="form-control" id="nickname" name="nickname" type="text" placeholder="Nickname" v-model="nickname">
                 </div>
                 <div class="form-group">
-                    <label for="biography">Biography</label>
+                    <label for="biography" class="form-label--required font-weight-bold">Biography</label>
                     <textarea class="form-control" rows="5" id="biography" name="biography" placeholder="Tell us about yourself!" v-model="biography"></textarea>
                 </div>
-                <strong>Profile Visibility</strong>
+                <spatn class="form-label--required font-weight-bold">Profile Visibility</spatn>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" id="public" :value="false" v-model="confidential_flag">
                     <label class="form-check-label" for="public">Public</label>
