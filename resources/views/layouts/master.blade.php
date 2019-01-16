@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="app-url" content="{{ url('/') }}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="description" content="CSUN's Profile Manager">
         <title>CSUN | {{ config('app.name') }}</title>
+        <link rel="icon" href="//www.csun.edu/sites/default/themes/csun/favicon.ico" type="image/x-icon"/>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
 
