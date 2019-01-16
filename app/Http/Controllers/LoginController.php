@@ -42,7 +42,7 @@ class LoginController extends Controller
                 $emailUri = strtok(auth()->user()->email, '@');
                 auth()->user()->avatar_image = config('webservices.media_url').
                     auth()->user()->affiliation.'/media/'.$emailUri.'/avatar?version='.
-                    $this->getFormattedTime().'&?secret='.config('webservices.media_secret_key').'&?source=true';
+                    $this->getFormattedTime().'&secret='.config('webservices.media_secret_key').'&source=true';
             }
             session()->put('user', auth()->user());
             return redirect()->route('profile.edit.info', auth()->user()->email_uri);
