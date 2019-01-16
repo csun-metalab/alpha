@@ -24102,6 +24102,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -24173,6 +24179,33 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("nav", { staticClass: "mt-3", attrs: { "aria-label": "breadcrumb" } }, [
+      _c("ol", { staticClass: "breadcrumb" }, [
+        _c("li", { staticClass: "breadcrumb-item" }, [
+          _c(
+            "a",
+            {
+              attrs: { href: "#" },
+              on: {
+                click: function($event) {
+                  _vm.$emit("cancel-pressed")
+                }
+              }
+            },
+            [
+              _c("i", {
+                staticClass: "fas fa-home",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" Home")
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ])
+    ]),
+    _vm._v(" "),
     _c("div", { staticClass: "container pt-5" }, [
       _c(
         "div",
@@ -24242,7 +24275,21 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "li",
+      {
+        staticClass: "breadcrumb-item active",
+        attrs: { "aria-current": "page" }
+      },
+      [_c("u", { staticClass: "font-weight-bold" }, [_vm._v("Edit Profile")])]
+    )
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

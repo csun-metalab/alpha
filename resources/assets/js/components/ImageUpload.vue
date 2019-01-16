@@ -1,5 +1,11 @@
 <template>
 <div>
+    <nav class="mt-3" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#" @click="$emit('cancel-pressed')"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><u class="font-weight-bold">Edit Profile</u></li>
+        </ol>
+    </nav>
     <div class="container pt-5">
         <div class="row justify-content-center">
             <croppa v-model="myCroppa"
