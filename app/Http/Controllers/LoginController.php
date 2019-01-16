@@ -36,7 +36,7 @@ class LoginController extends Controller
             if (!empty($directoryResponse->people)) {
                 auth()->user()->directory_data = $directoryResponse->people;
                 auth()->user()->avatar_image = $directoryResponse->people->profile_image.
-                    '?version='.$this->getFormattedTime();
+                    '&version='.$this->getFormattedTime();
             }
             if (auth()->user()->affiliation === 'student') {
                 $emailUri = strtok(auth()->user()->email, '@');
