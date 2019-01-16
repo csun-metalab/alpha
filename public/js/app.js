@@ -24202,7 +24202,14 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(0)
+        _c(
+          "li",
+          {
+            staticClass: "breadcrumb-item active",
+            attrs: { "aria-current": "page" }
+          },
+          [_vm._v("Edit Profile")]
+        )
       ])
     ]),
     _vm._v(" "),
@@ -24275,21 +24282,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "li",
-      {
-        staticClass: "breadcrumb-item active",
-        attrs: { "aria-current": "page" }
-      },
-      [_c("u", { staticClass: "font-weight-bold" }, [_vm._v("Edit Profile")])]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
