@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import BackButton from './BackButton';
 export default {
     data() {
         return {
