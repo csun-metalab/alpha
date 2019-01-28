@@ -22,12 +22,12 @@
                     <label for="biography" class="form-label--required font-weight-bold">Biography</label>
                     <textarea class="form-control" rows="5" id="biography" name="biography" placeholder="Tell us about yourself!" v-model="biography"></textarea>
                 </div>
-                <span class="form-label--required font-weight-bold">Profile Visibility</span>
-                <div class="form-check">
+                <span v-if="this.user.affiliation === 'student'" class="form-label--required font-weight-bold">Profile Visibility</span>
+                <div v-if="this.user.affiliation === 'student'" class="form-check">
                     <input class="form-check-input" type="radio" id="public" :value="false" v-model="confidential_flag">
                     <label class="form-check-label" for="public">Public</label>
                 </div>
-                <div class="form-check">
+                <div v-if="this.user.affiliation === 'student'" class="form-check">
                     <input class="form-check-input" type="radio" id="private" :value="true" v-model="confidential_flag">
                     <label class="form-check-label" for="private">Private</label>
                 </div>

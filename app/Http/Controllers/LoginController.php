@@ -49,12 +49,4 @@ class LoginController extends Controller
         session()->flash('message', 'Your username or password is invalid.');
         return redirect()->route('home');
     }
-
-    /**
-     * @return string
-     */
-    private function getFormattedTime()
-    {
-        return $this->mTimestamp->year.$this->mTimestamp->hour.$this->mTimestamp->minute.$this->mTimestamp->second;
-    }
 }
