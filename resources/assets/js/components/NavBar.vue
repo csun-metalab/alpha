@@ -27,9 +27,6 @@ export default {
     created() {
         this.url = window.appURL;
     },
-    components: {
-        'back-button': BackButton,
-    },
     methods: {
         setActiveClass: function() {
             this.activeClass = !this.activeClass;
