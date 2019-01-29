@@ -4,7 +4,7 @@
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 pt-5">
             <form>
                 <div class="form-group profile-img">
-                    <img :src="this.user.avatar_image + '&version=' + this.getTimeStamp()" class="rounded-circle img-fluid" :alt="this.display_name + '\'s Profile Image'">
+                    <img :src="this.user.avatar_image" class="rounded-circle img-fluid" :alt="this.display_name + '\'s Profile Image'">
                     <a href="#" class="edit-img" @click.prevent="editImage">Edit Image</a>
                 </div>
                 <div>
@@ -98,9 +98,6 @@ export default {
         },
         editImage() {
             this.$emit('edit-photo');
-        },
-        getTimeStamp() {
-            return `${window.moment().get('year')}${window.moment().get('hour')}${window.moment().get('minute')}${window.moment().get('second')}`;
         }
     }
 }

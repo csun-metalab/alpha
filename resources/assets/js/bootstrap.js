@@ -16,8 +16,6 @@ try {
     require('@fortawesome/fontawesome-free');
 } catch (e) {}
 
-window.moment = require('moment');
-
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
