@@ -28,10 +28,14 @@ class LoginController extends Controller
     public function postLogin(Request $request)
     {
         $credentials = $request->all('username', 'password');
-        if (auth()->attempt($credentials) && auth()->user()->affiliation) {
+        if (auth()->attempt($credentials)) {
             $guzzle = HandlerGuzzleFactory::fromDefaults();
-            $directoryResponse = $guzzle->get(config('webservices.directory_url').
-                'members/email/'. auth()->user()->email);
+            $directoryUrl = config('webservices.directory_url').
+                'members/email/'. auth()->user()->email;
+            if (auth()->affiliation === 'student') {
+                $directoryUrl .= '?secret='.urlencode(config('webservices.directory_secret_key'));
+            }
+            $directoryResponse = $guzzle->get($directoryUrl);
             $directoryResponse = $guzzle->resolveResponseBody($directoryResponse, 'json');
             if (!empty($directoryResponse->people)) {
                 auth()->user()->directory_data = $directoryResponse->people;
