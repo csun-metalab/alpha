@@ -32,7 +32,7 @@ class LoginController extends Controller
             $guzzle = HandlerGuzzleFactory::fromDefaults();
             $directoryUrl = config('webservices.directory_url').
                 'members/email/'. auth()->user()->email;
-            if (auth()->affiliation === 'student') {
+            if (auth()->user()->affiliation === 'student') {
                 $directoryUrl .= '?secret='.urlencode(config('webservices.directory_secret_key'));
             }
             $directoryResponse = $guzzle->get($directoryUrl);
