@@ -54,9 +54,11 @@ export default {
     },
     methods: {
         editPhoto() {
+            this.resetAlerts();
             this.uploadPicture = true;
         },
         toggleView() {
+            this.resetAlerts();
             this.uploadPicture = false;
         },
         showPopUpAlert(type) {
@@ -69,6 +71,10 @@ export default {
                 this.dangerAlert = !type.success;
             }
             this.alertDetails = type;
+        },
+        resetAlerts() {
+            this.successAlert = false;
+            this.dangerAlert = false;
         }
     }
 }

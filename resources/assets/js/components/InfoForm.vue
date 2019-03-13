@@ -1,14 +1,23 @@
 <template>
 <div>
+    <div v-if="this.name_coach_alert" class="alert alert-warning alert-dismissible" role="alert">
+        <button @click.prevent="toggleNameCoachAlert()" type="button" class="close" aria-label="Close">
+            <i aria-hidden="true" class="fas fa-times"></i>
+        </button>
+        <p ><i class="fas fa-exclamation-triangle"></i> Please visit <a href="https://cloud.name-coach.com/" target="_blank" rel="noreferrer">NameCoach</a> to record your name pronunciation!</p>
+    </div>
     <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 pt-5">
             <form>
                 <div class="form-group profile-img">
-                    <img :src="this.user.avatar_image" class="rounded-circle img-fluid" :alt="this.display_name + '\'s Profile Image'">
+                    <img :src="getImage()" class="rounded-circle img-fluid" :alt="this.display_name + '\'s Profile Image'">
                     <a href="#" class="edit-img" @click.prevent="editImage">Edit Image</a>
                 </div>
                 <div>
-                    <h2 class="text-center my-5">{{ this.display_name }}</h2>
+                    <h2 class="text-center my-5">{{ this.display_name }}
+                    <audio ref="name-coach" :src="this.user.name_coach" preload="auto"></audio>
+                    <a @click="playSound" href="#"><i class="fas fa-volume-up"></i></a>
+                    </h2>
                 </div>
                 <div class="form-group">
                     <label for="profile-name" class="form-label--required font-weight-bold">Profile Name</label>
@@ -51,6 +60,7 @@ export default {
             display_name: String,
             email: String,
             nickname: String,
+            name_coach_alert: false
         };
     },
     created() {
@@ -63,6 +73,7 @@ export default {
     },
     methods: {
         editInfo() {
+            this.saveValues();
             window.axios
                 .post(this.user.email_uri + '/info', {
                     biography: this.biography,
@@ -96,8 +107,25 @@ export default {
                     window.scrollTo(0, 0);
                 });
         },
+        getImage() {
+            return this.user.avatar_image;
+        },
         editImage() {
             this.$emit('edit-photo');
+        },
+        playSound: function () {
+            if (this.name_coach_alert !== true) {
+                this.$refs['name-coach'].play().catch(() => this.toggleNameCoachAlert());
+            }
+        },
+        toggleNameCoachAlert: function () {
+            this.name_coach_alert = !this.name_coach_alert;
+        },
+        saveValues: function () {
+            this.user.display_name = this.display_name;
+            this.user.nickname = this.nickname;
+            this.user.directory_data.biography = this.biography;
+            this.user.directory_data.confidential = !! this.confidential_flag;
         }
     }
 }

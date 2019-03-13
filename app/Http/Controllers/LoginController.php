@@ -2,25 +2,11 @@
 
 namespace Alpha\Http\Controllers;
 
-use Carbon\Carbon;
 use CSUNMetaLab\Guzzle\Factories\HandlerGuzzleFactory;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    /**
-     * @var
-     */
-    private $mTimestamp;
-
-    /**
-     * LoginController constructor.
-     */
-    public function __construct()
-    {
-        $this->mTimestamp = Carbon::now();
-    }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -47,6 +33,10 @@ class LoginController extends Controller
                     auth()->user()->affiliation.'/media/'.$emailUri.'/avatar?secret='.
                     config('webservices.media_secret_key').'&source=true';
             }
+            auth()->user()->name_coach = config('webservices.media_url').
+                auth()->user()->affiliation.'/media/'.strtok(auth()->user()->email, '@').
+                '/audio?secret='. config('webservices.media_secret_key').
+                '&source=true';
             session()->put('user', auth()->user());
             return redirect()->route('profile.edit.info', auth()->user()->email_uri);
         }
