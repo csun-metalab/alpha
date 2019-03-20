@@ -10,7 +10,7 @@
 
 <script>
     export default {
-        name: 'PopUpAlert',
+        name: 'pop-up-alert',
         props: ['details']
     }
 </script>

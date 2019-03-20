@@ -11,7 +11,7 @@
             <form>
                 <div class="form-group profile-img">
                     <img :src="getImage()" class="rounded-circle img-fluid" :alt="this.display_name + '\'s Profile Image'">
-                    <a href="#" class="edit-img" @click.prevent="editImage">Edit Image</a>
+                    <a href="#" class="edit-img" @click.prevent="editImage">Edit Photo</a>
                 </div>
                 <div>
                     <h2 class="text-center my-5">{{ this.display_name }}
@@ -22,10 +22,6 @@
                 <div class="form-group">
                     <label for="profile-name" class="form-label--required font-weight-bold">Profile Name</label>
                     <input class="form-control" id="profile-name" name="profile-name" type="text" placeholder="Name to display on profile" v-model="display_name">
-                </div>
-                <div class="form-group">
-                    <label for="nickname" class="font-weight-bold">Nickname (Optional)</label>
-                    <input class="form-control" id="nickname" name="nickname" type="text" placeholder="Nickname" v-model="nickname">
                 </div>
                 <div class="form-group">
                     <label for="biography" class="form-label--required font-weight-bold">Biography</label>
@@ -51,7 +47,7 @@
 
 <script>
 export default {
-    name: 'InfoForm',
+    name: 'info-form',
     props: ['user'],
     data() {
         return {
@@ -59,13 +55,11 @@ export default {
             confidential_flag: Boolean,
             display_name: String,
             email: String,
-            nickname: String,
             name_coach_alert: false
         };
     },
     created() {
         this.display_name = this.user.display_name;
-        this.nickname = this.user.nickname;
         if (this.user.directory_data != null) {
             this.biography = this.user.directory_data.biography;
         }
@@ -76,11 +70,10 @@ export default {
             this.saveValues();
             window.axios
                 .post(this.user.email_uri + '/info', {
-                    biography: this.biography,
+                    biography: encodeURI(this.biography),
                     confidential: this.confidential_flag,
-                    display_name: this.display_name,
+                    display_name: encodeURI(this.display_name),
                     email: this.user.email,
-                    nickname: this.nickname,
                 })
                 .then(response => {
                     if (response.data.success === 'true') {
@@ -123,7 +116,6 @@ export default {
         },
         saveValues: function () {
             this.user.display_name = this.display_name;
-            this.user.nickname = this.nickname;
             this.user.directory_data.biography = this.biography;
             this.user.directory_data.confidential = !! this.confidential_flag;
         }

@@ -9,7 +9,7 @@
         <meta name="description" content="CSUN's Profile Manager">
         <title>CSUN | {{ config('app.name') }}</title>
         <link rel="icon" href="//www.csun.edu/sites/default/themes/csun/favicon.ico" type="image/x-icon"/>
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ url('/').mix('css/app.css') }}">
     </head>
 
     <body>
@@ -21,14 +21,14 @@
         @endif
 
         <div id="app">
-            <nav-bar app-name="{{ config('app.name') }}"></nav-bar>
+            <nav-bar app-name="{{ config('app.name') }}" logged-in="{{ auth()->check() }}"></nav-bar>
                 <div class="container">
                     @yield('content')
                 </div>
                 <csun-footer app-name="{{ config('app.name') }}"></csun-footer>
         </div>
     </body>
-    <script src="{{ asset('js/manifest.js') }}"></script>
-    <script src="{{ asset('js/vendor.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ url('/').mix('js/manifest.js') }}"></script>
+    <script src="{{ url('/').mix('js/vendor.js') }}"></script>
+    <script src="{{ url('/').mix('js/app.js') }}"></script>
 </html>

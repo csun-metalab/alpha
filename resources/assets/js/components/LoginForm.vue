@@ -31,6 +31,7 @@
 
 <script>
 export default {
+    name: 'login-form',
     methods: {
         csrfToken: function() {
             return window.appToken;

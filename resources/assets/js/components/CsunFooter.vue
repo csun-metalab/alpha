@@ -69,6 +69,7 @@
 
 <script>
 export default {
+    name: 'csun-footer',
     props: ['app-name'],
 };
 </script>

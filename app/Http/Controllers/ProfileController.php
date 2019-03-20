@@ -88,7 +88,6 @@ class ProfileController extends Controller
                 'biography' => 'required|string',
                 'confidential' => 'required|boolean',
                 'display_name' => 'required|string',
-                'nickname' => 'nullable|sometimes|string'
             ]);
         if ($validator->fails()) {
             return [
@@ -103,7 +102,6 @@ class ProfileController extends Controller
             'biography' => $request->biography,
             'confidential' => $request->confidential,
             'display_name' => $request->display_name,
-            'nick_name' => $request->nickname,
         ]);
         $guzzle->setHeader('X-API-Key' , config('webservices.directory_secret_key'), false);
         $response = $guzzle->put(config('webservices.directory_url').'members/update-info');

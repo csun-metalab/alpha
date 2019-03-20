@@ -27,6 +27,7 @@ import ImageUpload from '../components/ImageUpload';
 import InfoForm from '../components/InfoForm';
 import PopUpAlert from '../components/PopUpAlert';
 export default {
+    name: 'user-profile',
     props: ['user-info'],
     components: {
         'image-upload': ImageUpload,

@@ -26,8 +26,14 @@ mix.js('resources/assets/js/app.js', 'public/js')
     ])
     .sass('resources/assets/sass/app.scss', 'public/css')
     .options({
-        processCssUrls: false
+        processCssUrls: false,
+        uglify: {
+            parallel: true
+        }
     }); // we are not processing the CSS urls due to how the SCSS for Font Awesome works
 
 // copy the webfonts for Font Awesome
 mix.copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts');
+if (mix.inProduction()) {
+    mix.version();
+}

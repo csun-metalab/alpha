@@ -2,8 +2,8 @@
 <div>
     <nav class="mt-3" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#" @click="$emit('cancel-pressed')"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
+            <li class="breadcrumb-item"><a href="#" @click="$emit('cancel-pressed')"><i class="fas fa-home" aria-hidden="true"></i> Edit Profile</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Upload Photo</li>
         </ol>
     </nav>
     <div class="container pt-5">
@@ -13,7 +13,7 @@
                     remove-button-color="black"
                     :remove-button-size="35"
                     prevent-white-space
-                    placeholder="Select an image."
+                    placeholder="Select a Photo"
                     :placeholder-font-size="18"
                     @init="imageInit"
                     @image-remove="disableUploadImageButton"
@@ -23,7 +23,7 @@
         </div>
         <div class="row justify-content-center">
             <div role="group">
-                <button @click.prevent="uploadPhoto" role="button" class="btn btn-primary" :class="{'disabled': this.uploadImageBtn}" :disabled="this.uploadImageBtn">Save Image</button>
+                <button @click.prevent="uploadPhoto" role="button" class="btn btn-primary" :class="{'disabled': this.uploadImageBtn}" :disabled="this.uploadImageBtn">Save Photo</button>
                 <button @click.prevent="$emit('cancel-pressed')" role="button" class="btn btn-secondary ml-2">Cancel</button>
             </div>
         </div>
@@ -34,6 +34,7 @@
 <script>
 import LoadingButton from './LoadingButton';
 export default {
+    name: 'image-upload',
     props: ['profileImage', 'displayName', 'emailUri', 'entityType'],
     components: {
         'loading-button': LoadingButton,
