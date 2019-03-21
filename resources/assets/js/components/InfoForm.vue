@@ -59,9 +59,9 @@ export default {
         };
     },
     created() {
-        this.display_name = this.user.display_name;
+        this.display_name = decodeURI(this.user.display_name);
         if (this.user.directory_data != null) {
-            this.biography = this.user.directory_data.biography;
+            this.biography = decodeURI(this.user.directory_data.biography);
         }
         this.confidential_flag = !!this.user.directory_data.confidential;
     },
