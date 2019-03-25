@@ -59,9 +59,9 @@ export default {
         };
     },
     created() {
-        this.display_name = decodeURI(this.user.display_name);
+        this.display_name = this.user.display_name;
         if (this.user.directory_data != null) {
-            this.biography = decodeURI(this.user.directory_data.biography);
+            this.biography = this.user.directory_data.biography;
         }
         this.confidential_flag = !!this.user.directory_data.confidential;
     },
@@ -70,9 +70,9 @@ export default {
             this.saveValues();
             window.axios
                 .post(this.user.email_uri + '/info', {
-                    biography: encodeURI(this.biography),
+                    biography: this.biography,
                     confidential: this.confidential_flag,
-                    display_name: encodeURI(this.display_name),
+                    display_name: this.display_name,
                     email: this.user.email,
                 })
                 .then(response => {

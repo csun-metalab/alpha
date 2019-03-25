@@ -37,20 +37,10 @@ export default {
     data() {
         return {
             user: JSON.parse(this.userInfo),
-            display_name: '',
-            biography: '',
-            nickname: '',
-            confidential_flag: false,
             uploadPicture: false,
             successAlert: false,
             dangerAlert: false,
             alertDetails: null
-        }
-    },
-    created() {
-        this.display_name = this.user.display_name;
-        if (this.user.directory_data.biography != null) {
-            this.biography = this.user.directory_data.biography;
         }
     },
     methods: {
